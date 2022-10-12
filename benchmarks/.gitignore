@@ -26,3 +26,4 @@ apps/radiosity/glibdumb/glib.a
 apps/radiosity/glibps/glibps.a
 apps/raytrace/inputs/car.rl
 
+tempfs
