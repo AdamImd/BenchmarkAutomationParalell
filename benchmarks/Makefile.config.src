@@ -1,10 +1,10 @@
 CC := gcc
-CFLAGS := -O2 
+CFLAGS := -O2 -pthread -D_XOPEN_SOURCE=500 -D_POSIX_C_SOURCE=200112 -std=c11 -g -fno-strict-aliasing
 LDFLAGS := -lm
 
 # BASEDIR needs to be set to where the same path as this Makefile
 # BASEDIR := $(HOME)/splash3/src/codes
-BASEDIR := /home/adam/BenchmarkAutomation/benchmarks/
+BASEDIR := $(HOME)/BenchmarkAutomation/benchmarks/
 MACROS := $(BASEDIR)/pthread_macros/pthread.m4.stougie
 M4 := m4 -Ulen -Uindex
 

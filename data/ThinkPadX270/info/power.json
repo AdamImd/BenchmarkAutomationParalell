@@ -1,0 +1,33 @@
+[
+  {
+    "id" : "battery:0",
+    "class" : "power",
+    "claimed" : true,
+    "handle" : "DMI:0023",
+    "product" : "45N1113",
+    "vendor" : "LGC",
+    "physid" : "1",
+    "slot" : "Front",
+    "units" : "mWh",
+    "capacity" : 23480,
+    "configuration" : {
+      "voltage" : "11.4V"
+    }
+  },
+  {
+    "id" : "battery:1",
+    "class" : "power",
+    "claimed" : true,
+    "handle" : "DMI:0024",
+    "product" : "45N1738",
+    "vendor" : "LGC",
+    "physid" : "2",
+    "slot" : "Rear",
+    "units" : "mWh",
+    "capacity" : 71100,
+    "configuration" : {
+      "voltage" : "11.2V"
+    }
+  }
+]
+

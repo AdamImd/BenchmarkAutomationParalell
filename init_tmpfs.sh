@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo umount ./benchmarks/tempfs/ 2>/dev/null
-rm -r ./benchmarks/tempfs/
+rm -r ./benchmarks/tempfs/ 2>/dev/null
 mkdir -p ./benchmarks/tempfs
 
 if [ -z "$1" ] 
