@@ -36,7 +36,7 @@ def compile_exe(compiler, flags, base_path, src_path):
     data[6] = "BASEDIR := " + base_path + "/benchmarks/" + '\n'
     open("./benchmarks/Makefile.config", 'w').writelines(data)
     os.chdir(base_path+src_path)
-    os.system("make clean > ./log.clean && make > ./log.make 2>&1")
+    os.system("make clean > ./log.clean && make" ) # > ./log.make 2>&1")
     os.system("cp -r " + base_path + src_path + "/* " 
             + base_path + "/benchmarks/tempfs/")
     os.chdir(old)
@@ -46,7 +46,7 @@ def run_exe(run_path, exe_file_path, input_file_path, output_file_path):
     old = os.getcwd()
     os.chdir(run_path)
     os.system("sudo perf record -o " + output_file_path + " " +
-            exe_file_path + " < " + input_file_path + " >/dev/null 2>&1")
+            exe_file_path + " < " + input_file_path + " >/dev/null") # 2>&1")
     os.chdir(old)
     print("Running: " + exe_file_path)
     print("\tSaving to: " + output_file_path)
@@ -57,7 +57,7 @@ def pf_mod(cpu_type, enable, base_path):
     flag = ""
     if (enable): 
         flag = " -e"
-    os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag + " > /tmp/pf_mod-" + str(enable) + ".txt 2>&1")
+    os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag + " > /tmp/pf_mod-" + str(enable) + ".txt") # 2>&1")
     os.chdir(old)
     print("Pre-fetcher: " + str(enable))
 
@@ -100,6 +100,7 @@ print("\tUpdated: " + path + "info/*")
 tmpfs_mod(root, True)
 compile_exe("gcc", "-O1 ", root, "/benchmarks/apps/fmm/")
 pf_mod("NOT IMPLEMENTED YET", False, root)
-run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test.data")
+run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test_off.data")
 pf_mod("NOT IMPLEMENTED YET", True, root)
+run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test_on.data")
 tmpfs_mod(root, False)
