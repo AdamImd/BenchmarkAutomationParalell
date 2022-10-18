@@ -9,26 +9,6 @@ tmpfs = root + '/benchmarks/tempfs'
 assert os.getuid() == 0, "Error: Run as superuser"
 
 
-os.system("lshw -json -C system -quiet > /tmp/temp.txt")
-data = json.load(open("/tmp/temp.txt"))
-path = './data/' + data[0]['version'].replace(' ', '') + '/'
-
-assert os.path.isdir('./data'), "Error: Run in root directory!"
-if not (os.path.isdir(path)):
-    print("Adding dir: " , path)
-    os.mkdir(path)
-
-os.chdir(path)
-print("Entering dir: " + path)
-
-updateInfo("")
-
-data = json.load(open("./info/processor.json"))
-cpu = data[0]['product']
-
-print("\tDetected CPU: " + cpu)
-print("\tUpdated: " + path + "info/*")
-
 
 
 #-------------------------------------------------
@@ -92,6 +72,30 @@ def tmpfs_mod(base_path, enable):
     print("Tempfs: " + str(enable))
 
 #---------------------------------------------------------
+
+
+os.system("lshw -json -C system -quiet > /tmp/temp.txt")
+data = json.load(open("/tmp/temp.txt"))
+path = './data/' + data[0]['version'].replace(' ', '') + '/'
+
+assert os.path.isdir('./data'), "Error: Run in root directory!"
+if not (os.path.isdir(path)):
+    print("Adding dir: " , path)
+    os.mkdir(path)
+
+os.chdir(path)
+print("Entering dir: " + path)
+
+updateInfo("")
+
+data = json.load(open("./info/processor.json"))
+cpu = data[0]['product']
+
+print("\tDetected CPU: " + cpu)
+print("\tUpdated: " + path + "info/*")
+
+
+
 
 tmpfs_mod(root, True)
 compile_exe("gcc", "-O1 ", root, "/benchmarks/apps/fmm/")
