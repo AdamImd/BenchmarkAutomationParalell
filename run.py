@@ -21,6 +21,8 @@ if not (os.path.isdir(path)):
 os.chdir(path)
 print("Entering dir: " + path)
 
+updateInfo("")
+
 data = json.load(open("./info/processor.json"))
 cpu = data[0]['product']
 
@@ -54,44 +56,46 @@ def compile_exe(compiler, flags, base_path, src_path):
     data[6] = "BASEDIR := " + base_path + "/benchmarks/" + '\n'
     open("./benchmarks/Makefile.config", 'w').writelines(data)
     os.chdir(base_path+src_path)
-    os.system("make clean > ./log.clean && make > ./log.make")
+    os.system("make clean > ./log.clean && make > ./log.make 2>&1")
     os.system("cp -r " + base_path + src_path + "/* " 
             + base_path + "/benchmarks/tempfs/")
     os.chdir(old)
+    print("Compiling: " + src_path)
 
 def run_exe(run_path, exe_file_path, input_file_path, output_file_path):
     old = os.getcwd()
     os.chdir(run_path)
     os.system("sudo perf record -o " + output_file_path + " " +
-            exe_file_path + " < " + input_file_path)
+            exe_file_path + " < " + input_file_path + " >/dev/null 2>&1")
     os.chdir(old)
+    print("Running: " + exe_file_path)
+    print("\tSaving to: " + output_file_path)
 
 def pf_mod(cpu_type, enable, base_path):
     old = os.getcwd()
     os.chdir(base_path)
     flag = ""
-    if (not disable): 
+    if (enable): 
         flag = " -e"
-    os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag)
+    os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag + " > /tmp/pf_mod-" + str(enable) + ".txt 2>&1")
     os.chdir(old)
+    print("Pre-fetcher: " + str(enable))
 
-def tmpfs_init(base_path):
+def tmpfs_mod(base_path, enable):
     old = os.getcwd()
     os.chdir(base_path)
-    os.system("./init_tmpfs.sh")
+    flag = ""
+    if (not enable): 
+        flag = " -d"
+    os.system("./init_tmpfs.sh" + flag)
     os.chdir(old)
-    
-def tmpfs_del(base_path):
-    old = os.getcwd()
-    os.chdir(base_path)
-    os.system("./init_tmpfs.sh")
-    os.chdir(old)
+    print("Tempfs: " + str(enable))
 
 #---------------------------------------------------------
 
-tmpfs_init(root)
-compile_exe("gcc", "-O2 ", root, "/benchmarks/apps/fmm/")
-pf_mod("NOT IMPLEMENTED YET", false, root)
+tmpfs_mod(root, True)
+compile_exe("gcc", "-O1 ", root, "/benchmarks/apps/fmm/")
+pf_mod("NOT IMPLEMENTED YET", False, root)
 run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test.data")
-pf_mod("NOT IMPLEMENTED YET", false, root)
-os.system(root + "/init_tmpfs.sh -u")
+pf_mod("NOT IMPLEMENTED YET", True, root)
+tmpfs_mod(root, False)
