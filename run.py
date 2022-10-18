@@ -66,6 +66,15 @@ def run_exe(run_path, exe_file_path, input_file_path, output_file_path):
             exe_file_path + " < " + input_file_path)
     os.chdir(old)
 
+def pf_mod(cpu_type, enable, base_path):
+    old = os.getcwd()
+    os.chdir(base_path)
+    flag = ""
+    if (not disable): 
+        flag = " -e"
+    os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag)
+    os.chdir(old)
+
 def tmpfs_init(base_path):
     old = os.getcwd()
     os.chdir(base_path)
@@ -78,7 +87,11 @@ def tmpfs_del(base_path):
     os.system("./init_tmpfs.sh")
     os.chdir(old)
 
+#---------------------------------------------------------
+
 tmpfs_init(root)
 compile_exe("gcc", "-O2 ", root, "/benchmarks/apps/fmm/")
+pf_mod("NOT IMPLEMENTED YET", false, root)
 run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test.data")
-#os.system(root + "/init_tmpfs.sh -u")
+pf_mod("NOT IMPLEMENTED YET", false, root)
+os.system(root + "/init_tmpfs.sh -u")
