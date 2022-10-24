@@ -85,6 +85,7 @@ if not (os.path.isdir(path)):
 
 os.chdir(path)
 print("Entering dir: " + path)
+path = os.getcwd()
 
 updateInfo("")
 
@@ -100,7 +101,7 @@ print("\tUpdated: " + path + "info/*")
 tmpfs_mod(root, True)
 compile_exe("gcc", "-O1 ", root, "/benchmarks/apps/fmm/")
 pf_mod("NOT IMPLEMENTED YET", False, root)
-run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test_off.data")
+run_exe(tmpfs, './FMM', './inputs/input.1.256', path+"test_off.data")
 pf_mod("NOT IMPLEMENTED YET", True, root)
-run_exe(tmpfs, './FMM', './inputs/input.1.256', "/tmp/test_on.data")
+run_exe(tmpfs, './FMM', './inputs/input.1.256', path+"test_on.data")
 tmpfs_mod(root, False)
