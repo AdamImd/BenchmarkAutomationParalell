@@ -113,6 +113,17 @@ def tmpfs_mod(base_path, enable):
     os.chdir(old)
     print("Tempfs: " + str(enable))
 
+# resets the Makefile to its original state so we don't have merge conflicts
+# takes in the path to the base directory
+def reset_config(base_path)
+    # save current directory 
+    old = os.getcwd()
+    os.chdir(base_path)
+    # restore original Makefile to erase config edits from prior runs
+    os.system("cp ./benchmarks/Makefile.config.src ./benchmarks/Makefile.config")
+    
+    os.chdir(old)
+
 #---------------------------------------------------------
 
 def main():
@@ -178,6 +189,8 @@ def main():
 #    pf_mod("NOT IMPLEMENTED YET", True, root)
 #    run_exe(tmpfs, './FMM', './inputs/input.1.256', benchmark_data_path+"/test_on.data")
 #    tmpfs_mod(root, False)
+
+    reset_config(root)
 
 if __name__ == "__main__":
     main()
