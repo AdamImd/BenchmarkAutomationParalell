@@ -84,6 +84,7 @@ def run_exe(run_path, exe_file_path, parameters, output_folder, iters):
           iters = number of times to run perf stat
     runs a compiled benchmark executable file with preset inputs and logs the perf stat data
     runs iters times and stores each run's data in a different file in the output_folder
+    also stores a CSV of iters repeated runs and aggregate statistics, taken separately
 '''
 def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
     old = os.getcwd()
@@ -91,8 +92,13 @@ def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
     # run the executable with perf stat iters times and write the outputs to 
     # csv files in output_folder of the form stati.csv
     for i in range(iters):
-        os.system("sudo perf stat -o " + output_folder + "/stat" + str(i) + ".csv -x , " +
-            exe_file_path + " " + parameters)
+        os.system("sudo perf stat -d -d -d -o " 
+            + output_folder + "/stat" + str(i) + ".csv -x , " +
+            exe_file_path + " " + parameters + " >/dev/null")
+    
+    os.system("sudo perf stat -d -d -d -o " + output_folder + 
+            "/stat_multi.csv -x , " + " -r " + str(iters) + " " +
+            exe_file_path + " " + parameters + " >/dev/null")
 
     os.chdir(old)
     print("Running: " + exe_file_path)
@@ -195,7 +201,8 @@ def main():
     prog = "./FFT"
     inpt = " -m1024"
 
-    NUM = 20
+    records = 2
+    stats = 20
 
     # run the tests
     old = os.getcwd()
@@ -217,8 +224,8 @@ def main():
                 pf_mod("??????", pf, root)
                 outpath = os.getcwd() #+ "/output.data"
                 #outpath2 = os.getcwd() + "/stat_output.txt"
-                run_exe(tmpfs, prog, inpt, outpath, NUM)
-                run_exe_stats(tmpfs, prog, inpt, outpath, NUM)
+                run_exe(tmpfs, prog, inpt, outpath, records)
+                run_exe_stats(tmpfs, prog, inpt, outpath, stats)
                 os.chdir("../");
             os.chdir("../");
         os.chdir("../");
