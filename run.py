@@ -85,7 +85,7 @@ def run_exe(run_path, exe_file_path, parameters, output_folder, iters):
     runs a compiled benchmark executable file with preset inputs and logs the perf stat data
     runs iters times and stores each run's data in a different file in the output_folder
 '''
-def run_exe_stats(run_path, exe_file_path, parameters, output_file_path, iters):
+def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
     old = os.getcwd()
     os.chdir(run_path)
     # run the executable with perf stat iters times and write the outputs to 
