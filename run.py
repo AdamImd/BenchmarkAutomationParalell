@@ -141,7 +141,7 @@ def tmpfs_mod(base_path, enable):
 
 # resets the Makefile to its original state so we don't have merge conflicts
 # takes in the path to the base directory
-def reset_config(base_path)
+def reset_config(base_path):
     # save current directory 
     old = os.getcwd()
     os.chdir(base_path)
