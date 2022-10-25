@@ -148,7 +148,8 @@
           "serial" : "None",
           "slot" : "U3E1",
           "units" : "Hz",
-          "size" : 3500098000,
+          "size" : 3498630000,
+          "capacity" : 3500000000,
           "width" : 64,
           "clock" : 100000000,
           "configuration" : {

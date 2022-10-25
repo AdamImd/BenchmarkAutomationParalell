@@ -62,12 +62,12 @@ def compile_exe(compiler, flags, base_path, src_path):
           output_file_path = name to give perf.data for this run
     runs a compiled benchmark executable file with preset inputs and logs the perf record data
 '''
-def run_exe(run_path, exe_file_path, input_file_path, output_file_path):
+def run_exe(run_path, exe_file_path, parameters, output_file_path):
     old = os.getcwd()
     os.chdir(run_path)
     # run the executable with perf record and save the output to output_file_path
     os.system("sudo perf record -o " + output_file_path + " " +
-            exe_file_path + " < " + input_file_path + " >/dev/null") # 2>&1")
+            exe_file_path + " " + parameters + " >/dev/null") # 2>&1")
     os.chdir(old)
     print("Running: " + exe_file_path)
     print("\tSaving to: " + output_file_path)
@@ -154,19 +154,19 @@ def main():
     flags = dict()
     flags["gcc"] = ["-O1", "-O2"]
 
-    app = "/benchmarks/apps/fmm"
-    prog = "./FMM"
-    inpt = "./inputs/input.1.256"
+    app = "/benchmarks/kernels/fft"
+    prog = "./FFT"
+    inpt = " -m1024"
 
     # run the tests
 
     for c in compilers:
         for f in flags[c]:
+            tmpfs_mod(root, True)
             compile_exe(c, f, root, app)
             for pf in [True, False]:
-                tmpfs_mod(root, True)
                 pf_mod("??????", pf, root)
-                outpath = benchmark_data_path + "/test_"+prog+"_"+c+"_"+f+"_"+pf
+                outpath = benchmark_data_path + "/test_"+prog.replace('/', '').replace('.', '')+"_"+c+"_"+f+"_"+str(pf)
                 run_exe(tmpfs, prog, inpt, outpath)
     tmpfs_mod(root, False)
 
