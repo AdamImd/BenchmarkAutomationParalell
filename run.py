@@ -73,6 +73,26 @@ def run_exe(run_path, exe_file_path, parameters, output_file_path):
     print("Running: " + exe_file_path)
     print("\tSaving to: " + output_file_path)
 
+''' args: run_path = path to the executable to run (e.g., tempfs)
+          exe_file_path = name of the executable file
+          input_file_path = relative path to input file desired for this run
+          output_file_path = file to pipe perf stats to for this run
+          iters = number of times to run perf stat
+    runs a compiled benchmark executable file with preset inputs and logs the perf stat data
+    runs iters times to get a lot of data to aggregate later
+'''
+def run_exe_stats(run_path, exe_file_path, parameters, output_file_path, iters):
+    old = os.getcwd()
+    os.chdir(run_path)
+    # run the executable with perf stat iters times and pipe the outputs to output_file_path
+    for i in range(iters):
+        os.system("sudo perf stat -o " + output_file_path + " --append " +
+            exe_file_path + " " + parameters)
+
+    os.chdir(old)
+    print("Running: " + exe_file_path)
+    print("\tSaving to: " + output_file_path)
+
 # run perf report for a particular perf.data alias
 ''' args: report_file = alias for perf.data to call report on
           report_path = location of the data
@@ -170,6 +190,8 @@ def main():
     prog = "./FFT"
     inpt = " -m1024"
 
+    NUM = 20
+
     # run the tests
     old = os.getcwd()
     results_dir = input("Directory name for results: ")
@@ -189,7 +211,9 @@ def main():
                 os.chdir(str(pf));
                 pf_mod("??????", pf, root)
                 outpath = os.getcwd() + "/output.data"
+                outpath2 = os.getcwd() + "/stat_output.txt"
                 run_exe(tmpfs, prog, inpt, outpath)
+                run_exe_stats(tmpfs, prog, inpt, outpath2, NUM)
                 os.chdir("../");
             os.chdir("../");
         os.chdir("../");
