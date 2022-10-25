@@ -197,6 +197,7 @@ def main():
     tmpfs_mod(root, False)
 
     os.chdir(root)
+    # Change ownership of all files to current user
     os.system('chown "$SUDO_USER" ./ -R')
 
     reset_config(root)
