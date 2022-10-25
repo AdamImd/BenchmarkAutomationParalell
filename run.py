@@ -60,38 +60,43 @@ def compile_exe(compiler, flags, base_path, src_path):
 ''' args: run_path = path to the executable to run (e.g., tempfs)
           exe_file_path = name of the executable file
           input_file_path = relative path to input file desired for this run
-          output_file_path = name to give perf.data for this run
+          output_folder = directory in which to store perf.data aliases
+          iters = number of times to run perf report
     runs a compiled benchmark executable file with preset inputs and logs the perf record data
+    runs iters times and stores each run's data in a different file in the output_folder
 '''
-def run_exe(run_path, exe_file_path, parameters, output_file_path):
+def run_exe(run_path, exe_file_path, parameters, output_folder, iters):
     old = os.getcwd()
     os.chdir(run_path)
-    # run the executable with perf record and save the output to output_file_path
-    os.system("sudo perf record -o " + output_file_path + " " +
+    # run the executable with perf record iters times and save the outputs 
+    # to files of the form reporti.data in output_folder
+    for i in range(iters):
+        os.system("sudo perf record -o " + output_folder + "/record" + str(i) + ".data " +
             exe_file_path + " " + parameters + " >/dev/null") # 2>&1")
     os.chdir(old)
     print("Running: " + exe_file_path)
-    print("\tSaving to: " + output_file_path)
+    print("\tSaving to: " + output_folder)
 
 ''' args: run_path = path to the executable to run (e.g., tempfs)
           exe_file_path = name of the executable file
           input_file_path = relative path to input file desired for this run
-          output_file_path = file to pipe perf stats to for this run
+          output_folder = directory in which to store perf stat data for this run
           iters = number of times to run perf stat
     runs a compiled benchmark executable file with preset inputs and logs the perf stat data
-    runs iters times to get a lot of data to aggregate later
+    runs iters times and stores each run's data in a different file in the output_folder
 '''
 def run_exe_stats(run_path, exe_file_path, parameters, output_file_path, iters):
     old = os.getcwd()
     os.chdir(run_path)
-    # run the executable with perf stat iters times and pipe the outputs to output_file_path
+    # run the executable with perf stat iters times and write the outputs to 
+    # csv files in output_folder of the form stati.csv
     for i in range(iters):
-        os.system("sudo perf stat -o " + output_file_path + " --append " +
+        os.system("sudo perf stat -o " + output_folder + "/stat" + str(i) + ".csv -x , " +
             exe_file_path + " " + parameters)
 
     os.chdir(old)
     print("Running: " + exe_file_path)
-    print("\tSaving to: " + output_file_path)
+    print("\tSaving to: " + output_folder)
 
 # run perf report for a particular perf.data alias
 ''' args: report_file = alias for perf.data to call report on
@@ -210,10 +215,10 @@ def main():
                 os.mkdir(str(pf));
                 os.chdir(str(pf));
                 pf_mod("??????", pf, root)
-                outpath = os.getcwd() + "/output.data"
-                outpath2 = os.getcwd() + "/stat_output.txt"
-                run_exe(tmpfs, prog, inpt, outpath)
-                run_exe_stats(tmpfs, prog, inpt, outpath2, NUM)
+                outpath = os.getcwd() #+ "/output.data"
+                #outpath2 = os.getcwd() + "/stat_output.txt"
+                run_exe(tmpfs, prog, inpt, outpath, NUM)
+                run_exe_stats(tmpfs, prog, inpt, outpath, NUM)
                 os.chdir("../");
             os.chdir("../");
         os.chdir("../");
