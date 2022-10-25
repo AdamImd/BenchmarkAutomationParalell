@@ -1,0 +1,31 @@
+[
+  {
+    "id" : "sata",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "PCI:0000:00:17.0",
+    "description" : "SATA controller",
+    "product" : "Sunrise Point-LP SATA Controller [AHCI mode]",
+    "vendor" : "Intel Corporation",
+    "physid" : "17",
+    "businfo" : "pci@0000:00:17.0",
+    "logicalname" : "scsi1",
+    "version" : "21",
+    "width" : 32,
+    "clock" : 66000000,
+    "configuration" : {
+      "driver" : "ahci",
+      "latency" : "0"
+    },
+    "capabilities" : {
+      "sata" : true,
+      "msi" : "Message Signalled Interrupts",
+      "pm" : "Power Management",
+      "ahci_1.0" : true,
+      "bus_master" : "bus mastering",
+      "cap_list" : "PCI capabilities listing",
+      "emulated" : "Emulated device"
+    }
+  }
+]
+
