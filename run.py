@@ -52,6 +52,7 @@ def compile_exe(compiler, flags, base_path, src_path):
     # move compiled program to temp file system so there are no conflicts with hard drive page faults
     # also copies all files that come with it (e.g., preset inputs)
     os.system("cp -r " + base_path + src_path + "/* " + base_path + "/benchmarks/tempfs/")
+    
     # restore directory
     os.chdir(old)
     print("Compiling: " + src_path)
@@ -159,25 +160,33 @@ def main():
     inpt = " -m1024"
 
     # run the tests
+    old = os.getcwd()
+    results_dir = input("Directory name for results: ")
+    os.mkdir(results_dir);
+    os.chdir(results_dir);
 
     for c in compilers:
+        os.mkdir(c);
+        os.chdir(c);
         for f in flags[c]:
+            os.mkdir(f);
+            os.chdir(f);
             tmpfs_mod(root, True)
             compile_exe(c, f, root, app)
             for pf in [True, False]:
+                os.mkdir(str(pf));
+                os.chdir(str(pf));
                 pf_mod("??????", pf, root)
-                outpath = benchmark_data_path + "/test_"+prog.replace('/', '').replace('.', '')+"_"+c+"_"+f+"_"+str(pf)
+                outpath = os.getcwd() + "/output.data"
                 run_exe(tmpfs, prog, inpt, outpath)
+                os.chdir("../");
+            os.chdir("../");
+        os.chdir("../");
+    os.chdir("../");
     tmpfs_mod(root, False)
 
-#    tmpfs_mod(root, True)
-#    # compile the program to use
-#    compile_exe("gcc", "-O1 ", root, "/benchmarks/apps/fmm/")
-#    pf_mod("NOT IMPLEMENTED YET", False, root)
-#    run_exe(tmpfs, './FMM', './inputs/input.1.256', benchmark_data_path+"/test_off.data")
-#    pf_mod("NOT IMPLEMENTED YET", True, root)
-#    run_exe(tmpfs, './FMM', './inputs/input.1.256', benchmark_data_path+"/test_on.data")
-#    tmpfs_mod(root, False)
+    os.chdir(root)
+    os.system('chown "$SUDO_USER" ./ -R')
 
 if __name__ == "__main__":
     main()
