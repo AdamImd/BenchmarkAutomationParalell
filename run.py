@@ -222,14 +222,15 @@ def main():
                 os.mkdir(str(pf));
                 os.chdir(str(pf));
                 pf_mod("??????", pf, root)
-                outpath = os.getcwd() #+ "/output.data"
-                #outpath2 = os.getcwd() + "/stat_output.txt"
+                outpath = os.getcwd() 
+                # run many tests and collect data for particular choice of c, f, pf
                 run_exe(tmpfs, prog, inpt, outpath, records)
                 run_exe_stats(tmpfs, prog, inpt, outpath, stats)
                 os.chdir("../");
             os.chdir("../");
         os.chdir("../");
     os.chdir("../");
+    # remove temp file system
     tmpfs_mod(root, False)
 
     os.chdir(root)
