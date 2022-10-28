@@ -148,7 +148,7 @@
           "serial" : "None",
           "slot" : "U3E1",
           "units" : "Hz",
-          "size" : 1755796000,
+          "size" : 3014699000,
           "capacity" : 3500000000,
           "width" : 64,
           "clock" : 100000000,
@@ -316,6 +316,12 @@
           }
         },
         {
+          "id" : "generic",
+          "class" : "generic",
+          "physid" : "1",
+          "businfo" : "parisc@1"
+        },
+        {
           "id" : "pci",
           "class" : "bridge",
           "claimed" : true,
@@ -407,9 +413,40 @@
                   },
                   "children" : [                    {
                       "id" : "usb:0",
-                      "class" : "communication",
+                      "class" : "input",
                       "claimed" : true,
                       "handle" : "USB:1:2",
+                      "description" : "Keyboard",
+                      "product" : "USB Receiver",
+                      "vendor" : "Logitech",
+                      "physid" : "1",
+                      "businfo" : "usb@1:1",
+                      "version" : "24.11",
+                      "configuration" : {
+                        "driver" : "usbhid",
+                        "maxpower" : "98mA",
+                        "speed" : "12Mbit/s"
+                      },
+                      "capabilities" : {
+                        "usb-2.00" : "USB 2.0"
+                      },
+                      "children" : [                        {
+                          "id" : "input",
+                          "class" : "input",
+                          "claimed" : true,
+                          "product" : "Logitech ERGO M575",
+                          "physid" : "0",
+                          "logicalname" : ["input16", "/dev/input/event5", "/dev/input/mouse1"],
+                          "capabilities" : {
+                            "usb" : "USB"
+                          }
+                        }]
+                    },
+                    {
+                      "id" : "usb:1",
+                      "class" : "communication",
+                      "claimed" : true,
+                      "handle" : "USB:1:3",
                       "description" : "Bluetooth wireless interface",
                       "product" : "Bluetooth wireless interface",
                       "vendor" : "Intel Corp.",
@@ -427,16 +464,16 @@
                       }
                     },
                     {
-                      "id" : "usb:1",
+                      "id" : "usb:2",
                       "class" : "multimedia",
                       "claimed" : true,
-                      "handle" : "USB:1:9",
+                      "handle" : "USB:1:18",
                       "description" : "Video",
                       "product" : "Integrated Camera: Integrated C",
                       "vendor" : "SunplusIT Inc",
                       "physid" : "8",
                       "businfo" : "usb@1:8",
-                      "logicalname" : ["input20", "/dev/input/event17"],
+                      "logicalname" : ["input36", "/dev/input/event6"],
                       "version" : "0.10",
                       "configuration" : {
                         "driver" : "uvcvideo",
@@ -619,14 +656,11 @@
                   "children" : [                    {
                       "id" : "volume:0",
                       "class" : "volume",
-                      "claimed" : true,
                       "handle" : "GUID:a066b9b7-ff86-4f01-bee1-5fa0a5f1c722",
                       "description" : "Windows FAT volume",
                       "vendor" : "mkfs.fat",
                       "physid" : "1",
                       "businfo" : "scsi@1:0.0.0,1",
-                      "logicalname" : ["/dev/sda1", "/boot/efi"],
-                      "dev" : "8:1",
                       "version" : "FAT32",
                       "serial" : "2f8e-fb74",
                       "size" : 535803904,
@@ -634,10 +668,7 @@
                       "configuration" : {
                         "FATs" : "2",
                         "filesystem" : "fat",
-                        "mount.fstype" : "vfat",
-                        "mount.options" : "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro",
-                        "name" : "EFI System Partition",
-                        "state" : "mounted"
+                        "name" : "EFI System Partition"
                       },
                       "capabilities" : {
                         "boot" : "Contains boot code",
@@ -663,10 +694,10 @@
                         "created" : "2022-09-25 00:11:21",
                         "filesystem" : "ext4",
                         "lastmountpoint" : "/",
-                        "modified" : "2022-10-25 09:43:08",
+                        "modified" : "2022-10-27 09:46:56",
                         "mount.fstype" : "ext4",
                         "mount.options" : "ro,noexec,noatime,errors=remount-ro",
-                        "mounted" : "2022-10-25 09:43:08",
+                        "mounted" : "2022-10-27 09:46:57",
                         "state" : "mounted"
                       },
                       "capabilities" : {
@@ -1021,73 +1052,73 @@
                   "id" : "input:0",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH Dock Mic",
+                  "product" : "HDA Intel PCH Mic",
                   "physid" : "0",
-                  "logicalname" : ["input10", "/dev/input/event9"]
+                  "logicalname" : ["input19", "/dev/input/event9"]
                 },
                 {
                   "id" : "input:1",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH Dock Headphone",
+                  "product" : "HDA Intel PCH Dock Mic",
                   "physid" : "1",
-                  "logicalname" : ["input11", "/dev/input/event10"]
+                  "logicalname" : ["input20", "/dev/input/event10"]
                 },
                 {
                   "id" : "input:2",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH Headphone",
+                  "product" : "HDA Intel PCH Dock Headphone",
                   "physid" : "2",
-                  "logicalname" : ["input12", "/dev/input/event11"]
+                  "logicalname" : ["input21", "/dev/input/event11"]
                 },
                 {
                   "id" : "input:3",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH HDMI/DP,pcm=3",
+                  "product" : "HDA Intel PCH Headphone",
                   "physid" : "3",
-                  "logicalname" : ["input13", "/dev/input/event12"]
+                  "logicalname" : ["input22", "/dev/input/event12"]
                 },
                 {
                   "id" : "input:4",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH HDMI/DP,pcm=7",
+                  "product" : "HDA Intel PCH HDMI/DP,pcm=3",
                   "physid" : "4",
-                  "logicalname" : ["input14", "/dev/input/event13"]
+                  "logicalname" : ["input23", "/dev/input/event13"]
                 },
                 {
                   "id" : "input:5",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH HDMI/DP,pcm=8",
+                  "product" : "HDA Intel PCH HDMI/DP,pcm=7",
                   "physid" : "5",
-                  "logicalname" : ["input15", "/dev/input/event14"]
+                  "logicalname" : ["input24", "/dev/input/event14"]
                 },
                 {
                   "id" : "input:6",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH HDMI/DP,pcm=9",
+                  "product" : "HDA Intel PCH HDMI/DP,pcm=8",
                   "physid" : "6",
-                  "logicalname" : ["input16", "/dev/input/event15"]
+                  "logicalname" : ["input25", "/dev/input/event15"]
                 },
                 {
                   "id" : "input:7",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH HDMI/DP,pcm=10",
+                  "product" : "HDA Intel PCH HDMI/DP,pcm=9",
                   "physid" : "7",
-                  "logicalname" : ["input17", "/dev/input/event16"]
+                  "logicalname" : ["input26", "/dev/input/event16"]
                 },
                 {
                   "id" : "input:8",
                   "class" : "input",
                   "claimed" : true,
-                  "product" : "HDA Intel PCH Mic",
+                  "product" : "HDA Intel PCH HDMI/DP,pcm=10",
                   "physid" : "8",
-                  "logicalname" : ["input9", "/dev/input/event8"]
+                  "logicalname" : ["input27", "/dev/input/event17"]
                 }]
             },
             {
@@ -1210,9 +1241,9 @@
       "id" : "input:2",
       "class" : "input",
       "claimed" : true,
-      "product" : "Power Button",
+      "product" : "ThinkPad Extra Buttons",
       "physid" : "5",
-      "logicalname" : ["input2", "/dev/input/event2"],
+      "logicalname" : ["input17", "/dev/input/event7"],
       "capabilities" : {
         "platform" : true
       }
@@ -1221,31 +1252,31 @@
       "id" : "input:3",
       "class" : "input",
       "claimed" : true,
-      "product" : "AT Translated Set 2 keyboard",
+      "product" : "Video Bus",
       "physid" : "6",
-      "logicalname" : ["input3", "/dev/input/event3", "input3::capslock", "input3::numlock", "input3::scrolllock"],
+      "logicalname" : ["input18", "/dev/input/event8"],
       "capabilities" : {
-        "i8042" : "i8042 PC AT keyboard controller"
+        "platform" : true
       }
     },
     {
       "id" : "input:4",
       "class" : "input",
       "claimed" : true,
-      "product" : "SynPS/2 Synaptics TouchPad",
+      "product" : "Power Button",
       "physid" : "7",
-      "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
+      "logicalname" : ["input2", "/dev/input/event2"],
       "capabilities" : {
-        "i8042" : "i8042 PC AT keyboard controller"
+        "platform" : true
       }
     },
     {
       "id" : "input:5",
       "class" : "input",
       "claimed" : true,
-      "product" : "TPPS/2 IBM TrackPoint",
+      "product" : "AT Translated Set 2 keyboard",
       "physid" : "8",
-      "logicalname" : ["input6", "/dev/input/event5", "/dev/input/mouse1"],
+      "logicalname" : ["input3", "/dev/input/event3", "input3::capslock", "input3::numlock", "input3::scrolllock"],
       "capabilities" : {
         "i8042" : "i8042 PC AT keyboard controller"
       }
@@ -1254,22 +1285,22 @@
       "id" : "input:6",
       "class" : "input",
       "claimed" : true,
-      "product" : "ThinkPad Extra Buttons",
+      "product" : "TPPS/2 IBM TrackPoint",
       "physid" : "9",
-      "logicalname" : ["input7", "/dev/input/event6"],
+      "logicalname" : ["input32", "/dev/input/event18", "/dev/input/mouse2"],
       "capabilities" : {
-        "platform" : true
+        "i8042" : "i8042 PC AT keyboard controller"
       }
     },
     {
       "id" : "input:7",
       "class" : "input",
       "claimed" : true,
-      "product" : "Video Bus",
+      "product" : "SynPS/2 Synaptics TouchPad",
       "physid" : "a",
-      "logicalname" : ["input8", "/dev/input/event7"],
+      "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
       "capabilities" : {
-        "platform" : true
+        "i8042" : "i8042 PC AT keyboard controller"
       }
     }]
 }
