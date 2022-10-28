@@ -195,11 +195,12 @@ def main():
     # all compilers and possible flags to test
     compilers = ["gcc"]
     flags = dict()
-    flags["gcc"] = ["-O1", "-O2"]
+    flags["gcc"] = ["-O1", "-O2", "-O3", "-O4", "-O5"]
 
     app = "/benchmarks/kernels/fft"
     prog = "./FFT"
-    inpt = " -m1024"
+    # 2^24 data points gives around 4 sec per test
+    inpt = " -m24 -p" # could give more args but rest will default
 
     records = 2
     stats = 20
