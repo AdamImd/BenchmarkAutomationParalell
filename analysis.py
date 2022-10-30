@@ -49,6 +49,7 @@ def main():
 
     x_cat = 'L1-dcache-loads'
     y_cat = 'L1-dcache-load-misses'
+    plt.figure(figsize=(7,7))
     parameter = (("-O1", False), ("-O1", True), ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
     for parm in parameter:
         x = []
@@ -58,8 +59,8 @@ def main():
             y.append(float(i[y_cat][0]))
         plt.scatter(x, y)
     plt.legend([i[0]+"_"+str(i[1]) for i in parameter])
-    plt.xlabel(x_cat)
-    plt.ylabel(y_cat)
+    plt.xlabel(x_cat, fontsize=20)
+    plt.ylabel(y_cat, fontsize=20)
     plt.show()
 
 if __name__ == "__main__":
