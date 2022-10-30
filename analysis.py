@@ -6,6 +6,8 @@
 import os, csv
 import matplotlib as mat
 
+CPU = "ThinkPadX270"
+
 def read_data(fname):
     run = {}
     data = csv.reader(open(fname).readlines()[2:])
@@ -15,7 +17,9 @@ def read_data(fname):
 
 def main():
     root = os.getcwd()
-    machine = input("Enter the machine to get data for: ")
+    #machine = input("Enter the machine to get data for: ")
+    machine = CPU
+
     test_foldr = input("Enter the folder containing all test data: ")
 
     foldr = root + "/data/" + machine + "/" + test_foldr + "/"
@@ -23,31 +27,33 @@ def main():
     data = dict()
 
     # get list of compiler folders
-    compilers = list(filter(os.path.isdir, os.listdir(foldr)))
+    compilers = list(filter(lambda p: os.path.isdir(foldr + p), os.listdir(foldr)))
     for c in compilers:
         data[c] = dict()
+        cpath = foldr + c + "/"
         # get list of flag folders
-        flags = list(filter(os.path.isdir, os.listdir(foldr + c)))
+        flags = list(filter(lambda p: os.path.isdir(cpath + p), os.listdir(cpath)))
         for f in flags:
             data[c][f] = dict()
+            fpath = cpath + f + "/"
             
             for pf in [True, False]:
                 # get all csv files with stat data
-                stats = list(filter(lambda x: x[-3:] == "csv", 
-                                    os.listdir(foldr + c + "/" + f + "/" + str(pf))
-                                    ))
-                data[c][f][pf] = [read_data(f) for f in stats]
+                stats = list(filter(lambda x: x[-3:] == "csv", os.listdir((fpath + str(pf)))))
+                        
+                data[c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) for fname in stats]
 
     # data should now exist
     # access via data[compiler][flag][prefetch bool][index][desired data field]
+    # e.g., data["gcc"]["-O0"][True][4]["branch-misses"]
 
-    print(data)
     x = []
     y = []
-    for i in data["gcc"]["-O1"]["True"]:
+    for i in data["gcc"]["-O2"][True]:
         x += i['branches'][0]
         y += i['branch-misses'][0]
     mat.pyplot.scatter(x, y)
     mat.pyplot.show()
 
-main()
+if __name__ == "__main__":
+    main()
