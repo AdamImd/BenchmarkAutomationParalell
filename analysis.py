@@ -50,7 +50,7 @@ def main():
     x_cat = 'L1-dcache-loads'
     y_cat = 'L1-dcache-load-misses'
     plt.figure(figsize=(7,7))
-    parameter = (("-O1", False), ("-O1", True), ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
+    parameter = (("-O0", False), ("-O0", True), ("-O1", False), ("-O1", True), ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
     for parm in parameter:
         x = []
         y = []
