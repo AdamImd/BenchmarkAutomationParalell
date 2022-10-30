@@ -148,7 +148,7 @@
           "serial" : "None",
           "slot" : "U3E1",
           "units" : "Hz",
-          "size" : 3014699000,
+          "size" : 2781803000,
           "capacity" : 3500000000,
           "width" : 64,
           "clock" : 100000000,
@@ -467,13 +467,13 @@
                       "id" : "usb:2",
                       "class" : "multimedia",
                       "claimed" : true,
-                      "handle" : "USB:1:18",
+                      "handle" : "USB:1:29",
                       "description" : "Video",
                       "product" : "Integrated Camera: Integrated C",
                       "vendor" : "SunplusIT Inc",
                       "physid" : "8",
                       "businfo" : "usb@1:8",
-                      "logicalname" : ["input36", "/dev/input/event6"],
+                      "logicalname" : ["input42", "/dev/input/event6"],
                       "version" : "0.10",
                       "configuration" : {
                         "driver" : "uvcvideo",
@@ -1296,8 +1296,19 @@
       "id" : "input:7",
       "class" : "input",
       "claimed" : true,
-      "product" : "SynPS/2 Synaptics TouchPad",
+      "product" : "Jabra Elite 85h (AVRCP)",
       "physid" : "a",
+      "logicalname" : ["input43", "/dev/input/event19"],
+      "capabilities" : {
+        "bluetooth" : "Bluetooth"
+      }
+    },
+    {
+      "id" : "input:8",
+      "class" : "input",
+      "claimed" : true,
+      "product" : "SynPS/2 Synaptics TouchPad",
+      "physid" : "b",
       "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
       "capabilities" : {
         "i8042" : "i8042 PC AT keyboard controller"

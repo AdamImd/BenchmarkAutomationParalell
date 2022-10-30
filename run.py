@@ -198,7 +198,7 @@ def main():
     # all possible flag options we might want to test
     flags["gcc"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-fprefetch-loop-arrays"]
     # refine to just 2
-    flags["gcc"] = ["-O0", "-O2"]
+    flags["gcc"] = ["-O0", "-O1", "-O2", "-Ofast"]
 
     app = "/benchmarks/kernels/fft"
     prog = "./FFT"

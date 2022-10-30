@@ -1,10 +1,10 @@
-
+#! /bin/env python3 
 # analysis.py
 # tranverses the directory structure created by run.py and constructs a data table
 # then enables data analysis on the data such as by creating plots
 
 import os, csv
-import matplotlib as mat
+import matplotlib.pyplot as plt
 
 CPU = "ThinkPadX270"
 
@@ -47,13 +47,20 @@ def main():
     # access via data[compiler][flag][prefetch bool][index][desired data field]
     # e.g., data["gcc"]["-O0"][True][4]["branch-misses"]
 
-    x = []
-    y = []
-    for i in data["gcc"]["-O2"][True]:
-        x += i['branches'][0]
-        y += i['branch-misses'][0]
-    mat.pyplot.scatter(x, y)
-    mat.pyplot.show()
+    x_cat = 'L1-dcache-loads'
+    y_cat = 'L1-dcache-load-misses'
+    parameter = (("-O0", False), ("-O0", True), ("-O1", False), ("-O1", True), ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
+    for parm in parameter:
+        x = []
+        y = []
+        for i in data["gcc"][parm[0]][parm[1]][:-1]:
+            x.append(float(i[x_cat][0]))
+            y.append(float(i[y_cat][0]))
+        plt.scatter(x, y)
+    plt.legend([i[0]+"_"+str(i[1]) for i in parameter])
+    plt.xlabel(x_cat)
+    plt.ylabel(y_cat)
+    plt.show()
 
 if __name__ == "__main__":
     main()
