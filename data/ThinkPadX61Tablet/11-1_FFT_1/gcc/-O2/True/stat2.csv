@@ -1,0 +1,22 @@
+# started on Tue Nov  1 12:28:41 2022
+
+1728.80,msec,task-clock,1728801107,100.00,0.999,CPUs utilized
+18,,context-switches,1728801107,100.00,10.412,/sec
+1,,cpu-migrations,1728801107,100.00,0.578,/sec
+49272,,page-faults,1728801107,100.00,28.501,K/sec
+3058168188,,cycles,223823025,12.96,1.769,GHz
+3751243688,,instructions,339747091,19.67,1.23,insn per cycle
+361700656,,branches,343552700,19.89,209.221,M/sec
+2053002,,branch-misses,347644645,20.12,0.57,of all branches
+792062109,,L1-dcache-loads,231726118,13.41,458.157,M/sec
+32667348,,L1-dcache-load-misses,231766799,13.42,4.12,of all L1-dcache accesses
+33359148,,LLC-loads,231879617,13.42,19.296,M/sec
+1142092,,LLC-load-misses,231378318,13.39,3.42,of all LL-cache accesses
+2979159621,,L1-icache-loads,231556385,13.40,1.723,G/sec
+552502,,L1-icache-load-misses,231718311,13.41,0.02,of all L1-icache accesses
+865043043,,dTLB-loads,231460532,13.40,500.372,M/sec
+2197566,,dTLB-load-misses,231775079,13.42,0.25,of all dTLB cache accesses
+4192662156,,iTLB-loads,347626444,20.12,2.425,G/sec
+123153,,iTLB-load-misses,345288501,19.99,0.00,of all iTLB cache accesses
+13335239,,L1-dcache-prefetches,341382292,19.76,7.714,M/sec
+<not supported>,,L1-dcache-prefetch-misses,0,100.00,,
