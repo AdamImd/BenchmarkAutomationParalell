@@ -120,6 +120,7 @@ def report_from_run(report_file, report_path):
 
 # turn on or off the hardware prefetcher
 # TODO: work on this later
+# goal: customize pf_mod to properly turn on/off the prefetcher for particular architectures
 def pf_mod(cpu_type, enable, base_path):
     old = os.getcwd()
     os.chdir(base_path)
@@ -225,6 +226,9 @@ def main():
             tmpfs_mod(root, True)
             compile_exe(c, f, root, app)
             for pf in [True, False]:
+                
+                printf("Testing %s %s with prefetcher %s:\n", c, f, pf ? "on" : "off");
+
                 os.mkdir(str(pf));
                 os.chdir(str(pf));
                 pf_mod("??????", pf, root)
