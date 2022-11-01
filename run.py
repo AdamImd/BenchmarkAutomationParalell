@@ -92,6 +92,7 @@ def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
     # run the executable with perf stat iters times and write the outputs to 
     # csv files in output_folder of the form stati.csv
     for i in range(iters):
+        print("Running test", i)
         os.system("sudo perf stat -d -d -d -o " 
             + output_folder + "/stat" + str(i) + ".csv -x , " +
             exe_file_path + " " + parameters + " >/dev/null")
