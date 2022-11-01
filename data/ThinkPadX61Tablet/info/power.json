@@ -1,0 +1,11 @@
+[
+  {
+    "id" : "battery",
+    "class" : "power",
+    "claimed" : true,
+    "handle" : "DMI:002A",
+    "physid" : "1",
+    "slot" : "Rear"
+  }
+]
+

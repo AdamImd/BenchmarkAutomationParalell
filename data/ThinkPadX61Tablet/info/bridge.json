@@ -1,0 +1,137 @@
+[
+  {
+    "id" : "pci",
+    "class" : "bridge",
+    "claimed" : true,
+    "handle" : "PCIBUS:0000:00",
+    "description" : "Host bridge",
+    "product" : "Mobile PM965/GM965/GL960 Memory Controller Hub",
+    "vendor" : "Intel Corporation",
+    "physid" : "100",
+    "businfo" : "pci@0000:00:00.0",
+    "version" : "0c",
+    "width" : 32,
+    "clock" : 33000000
+  },
+      {
+        "id" : "pci:0",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:02",
+        "description" : "PCI bridge",
+        "product" : "82801H (ICH8 Family) PCI Express Port 1",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c",
+        "businfo" : "pci@0000:00:1c.0",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:1",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:03",
+        "description" : "PCI bridge",
+        "product" : "82801H (ICH8 Family) PCI Express Port 2",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.1",
+        "businfo" : "pci@0000:00:1c.1",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:2",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:05",
+        "description" : "PCI bridge",
+        "product" : "82801 Mobile PCI Bridge",
+        "vendor" : "Intel Corporation",
+        "physid" : "1e",
+        "businfo" : "pci@0000:00:1e.0",
+        "version" : "f3",
+        "width" : 32,
+        "clock" : 33000000,
+        "capabilities" : {
+          "pci" : true,
+          "subtractive_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+          {
+            "id" : "pcmcia",
+            "class" : "bridge",
+            "claimed" : true,
+            "handle" : "PCI:0000:05:00.0",
+            "description" : "CardBus bridge",
+            "product" : "RL5c476 II",
+            "vendor" : "Ricoh Co Ltd",
+            "physid" : "0",
+            "businfo" : "pci@0000:05:00.0",
+            "version" : "ba",
+            "width" : 64,
+            "clock" : 33000000,
+            "configuration" : {
+              "driver" : "yenta_cardbus",
+              "latency" : "176",
+              "maxlatency" : "5",
+              "mingnt" : "128"
+            },
+            "capabilities" : {
+              "pcmcia" : "PC-Card (PCMCIA)",
+              "bus_master" : "bus mastering",
+              "cap_list" : "PCI capabilities listing"
+            }
+          },
+      {
+        "id" : "isa",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCI:0000:00:1f.0",
+        "description" : "ISA bridge",
+        "product" : "82801HEM (ICH8M-E) LPC Interface Controller",
+        "vendor" : "Intel Corporation",
+        "physid" : "1f",
+        "businfo" : "pci@0000:00:1f.0",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "lpc_ich",
+          "latency" : "0"
+        },
+        "capabilities" : {
+          "isa" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      }
+]
+

@@ -1,0 +1,70 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0001",
+  "description" : "Notebook",
+  "product" : "77675AU",
+  "vendor" : "LENOVO",
+  "version" : "ThinkPad X61 Tablet",
+  "serial" : "LVB2187",
+  "width" : 64,
+  "configuration" : {
+    "administrator_password" : "disabled",
+    "boot" : "normal",
+    "chassis" : "notebook",
+    "family" : "ThinkPad X61 Tablet",
+    "frontpanel_password" : "unknown",
+    "keyboard_password" : "disabled",
+    "power-on_password" : "disabled",
+    "uuid" : "a0ec544d-f2aa-dc11-8491-f5abf025e323"
+  },
+  "capabilities" : {
+    "smbios-2.4" : "SMBIOS version 2.4",
+    "dmi-2.4" : "DMI version 2.4",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:00",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "0",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:01",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "1",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:02",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "2",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+
