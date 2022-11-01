@@ -74,8 +74,8 @@ def run_exe(run_path, exe_file_path, parameters, output_folder, iters):
         os.system("sudo perf record -o " + output_folder + "/record" + str(i) + ".data " +
             exe_file_path + " " + parameters + " >/dev/null") # 2>&1")
     os.chdir(old)
-    print("Running: " + exe_file_path)
-    print("\tSaving to: " + output_folder)
+    #print("Running: " + exe_file_path)
+    #print("\tSaving to: " + output_folder)
 
 ''' args: run_path = path to the executable to run (e.g., tempfs)
           exe_file_path = name of the executable file
@@ -96,14 +96,15 @@ def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
         os.system("sudo perf stat -d -d -d -o " 
             + output_folder + "/stat" + str(i) + ".csv -x , " +
             exe_file_path + " " + parameters + " >/dev/null")
-    
+
+    print("Running aggregate test")
     os.system("sudo perf stat -d -d -d -o " + output_folder + 
             "/stat_multi.csv -x , " + " -r " + str(iters) + " " +
             exe_file_path + " " + parameters + " >/dev/null")
 
     os.chdir(old)
-    print("Running: " + exe_file_path)
-    print("\tSaving to: " + output_folder)
+    #print("Running: " + exe_file_path)
+    #print("\tSaving to: " + output_folder)
 
 # run perf report for a particular perf.data alias
 ''' args: report_file = alias for perf.data to call report on
@@ -130,7 +131,7 @@ def pf_mod(cpu_type, enable, base_path):
         flag = " -e"
     os.system("./tools/uarch-configure/intel-prefetch/intel-prefetch-disable" + flag + " > /tmp/pf_mod-" + str(enable) + ".txt") # 2>&1")
     os.chdir(old)
-    print("Pre-fetcher: " + str(enable))
+    print("Pre-fetcher:", "on" if enable else "off")
 
 # set up temp file system using init_tempfs.sh script
 ''' args: base_path = location of init_tempfs.sh (root directory of project)
@@ -145,7 +146,7 @@ def tmpfs_mod(base_path, enable):
     flag = "" if enable else " -d" # for disable 
     os.system("./init_tmpfs.sh" + flag)
     os.chdir(old)
-    print("Tempfs: " + str(enable))
+    print("Tempfs exists: " + str(enable))
 
 # resets the Makefile to its original state so we don't have merge conflicts
 # takes in the path to the base directory
