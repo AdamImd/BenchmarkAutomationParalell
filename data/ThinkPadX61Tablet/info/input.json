@@ -51,7 +51,7 @@
     "claimed" : true,
     "product" : "Wacom Serial Penabled Pen",
     "physid" : "5",
-    "logicalname" : ["input11", "/dev/input/event10", "/dev/input/mouse1"],
+    "logicalname" : ["input13", "/dev/input/event10", "/dev/input/mouse1"],
     "capabilities" : {
       "rs232" : "RS-232 serial"
     }

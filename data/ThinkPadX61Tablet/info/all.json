@@ -77,7 +77,7 @@
           "version" : "6.15.11",
           "slot" : "None",
           "units" : "Hz",
-          "size" : 1227698000,
+          "size" : 1249703000,
           "capacity" : 1601000000,
           "width" : 64,
           "clock" : 200000000,
@@ -392,7 +392,7 @@
                   "children" : [                    {
                       "id" : "usb",
                       "class" : "generic",
-                      "handle" : "USB:3:2",
+                      "handle" : "USB:3:3",
                       "description" : "Generic USB device",
                       "product" : "Biometric Coprocessor",
                       "vendor" : "STMicroelectronics",
@@ -1298,7 +1298,7 @@
       "claimed" : true,
       "product" : "Wacom Serial Penabled Pen",
       "physid" : "5",
-      "logicalname" : ["input11", "/dev/input/event10", "/dev/input/mouse1"],
+      "logicalname" : ["input13", "/dev/input/event10", "/dev/input/mouse1"],
       "capabilities" : {
         "rs232" : "RS-232 serial"
       }
