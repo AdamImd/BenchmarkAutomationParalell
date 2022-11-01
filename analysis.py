@@ -6,7 +6,7 @@
 import os, csv
 import matplotlib.pyplot as plt
 
-CPU = "ThinkPadX270"
+CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
 
 def read_data(fname):
     run = {}
@@ -22,39 +22,45 @@ def main():
 
     test_foldr = input("Enter the folder containing all test data: ")
 
-    foldr = root + "/data/" + machine + "/" + test_foldr + "/"
-
     data = dict()
 
-    # get list of compiler folders
-    compilers = list(filter(lambda p: os.path.isdir(foldr + p), os.listdir(foldr)))
-    for c in compilers:
-        data[c] = dict()
-        cpath = foldr + c + "/"
-        # get list of flag folders
-        flags = list(filter(lambda p: os.path.isdir(cpath + p), os.listdir(cpath)))
-        for f in flags:
-            data[c][f] = dict()
-            fpath = cpath + f + "/"
-            
-            for pf in [True, False]:
-                # get all csv files with stat data
-                stats = list(filter(lambda x: x[-3:] == "csv", os.listdir((fpath + str(pf)))))
-                        
-                data[c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) for fname in stats]
+    for machine in CPU:
+        m = machine
+        data[m] = dict()
+
+        foldr = root + "/data/" + machine + "/" + test_foldr + "/"
+
+        # get list of compiler folders
+        compilers = list(filter(lambda p: os.path.isdir(foldr + p), os.listdir(foldr)))
+        for c in compilers:
+            data[m][c] = dict()
+            cpath = foldr + c + "/"
+            # get list of flag folders
+            flags = list(filter(lambda p: os.path.isdir(cpath + p), os.listdir(cpath)))
+            for f in flags:
+                data[m][c][f] = dict()
+                fpath = cpath + f + "/"
+                
+                for pf in [True, False]:
+                    # get all csv files with stat data
+                    stats = list(filter(lambda x: x[-3:] == "csv", os.listdir((fpath + str(pf)))))
+                            
+                    data[m][c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) for fname in stats]
 
     # data should now exist
-    # access via data[compiler][flag][prefetch bool][index][desired data field]
-    # e.g., data["gcc"]["-O0"][True][4]["branch-misses"]
+    # access via data[machine][compiler][flag][prefetch bool][index][desired data field]
+    # e.g., data["ThinkPadX270"]["gcc"]["-O0"][True][4]["branch-misses"]
 
     x_cat = 'L1-dcache-loads'
     y_cat = 'L1-dcache-load-misses'
     plt.figure(figsize=(7,7))
-    parameter = (("-O0", False), ("-O0", True), ("-O1", False), ("-O1", True), ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
+    parameter = (("-O0", False), ("-O0", True), ("-O1", False), ("-O1", True), \
+                ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
     for parm in parameter:
         x = []
         y = []
-        for i in data["gcc"][parm[0]][parm[1]][:-1]:
+        # TODO: allow plots with multiple machines' data
+        for i in data["ThinkPadX270"]["gcc"][parm[0]][parm[1]][:-1]:
             x.append(float(i[x_cat][0]))
             y.append(float(i[y_cat][0]))
         plt.scatter(x, y)

@@ -227,7 +227,7 @@ def main():
             compile_exe(c, f, root, app)
             for pf in [True, False]:
                 
-                printf("Testing %s %s with prefetcher %s:\n", c, f, pf ? "on" : "off");
+                print("Testing ", c, " ", f, " with prefetcher ", "on" if pf else "off", ":", sep = "");
 
                 os.mkdir(str(pf));
                 os.chdir(str(pf));
