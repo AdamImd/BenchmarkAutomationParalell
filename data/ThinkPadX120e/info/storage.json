@@ -1,0 +1,76 @@
+[
+  {
+    "id" : "sata",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "PCI:0000:00:11.0",
+    "description" : "SATA controller",
+    "product" : "SB7x0/SB8x0/SB9x0 SATA Controller [AHCI mode]",
+    "vendor" : "Advanced Micro Devices, Inc. [AMD/ATI]",
+    "physid" : "11",
+    "businfo" : "pci@0000:00:11.0",
+    "logicalname" : "scsi0",
+    "version" : "00",
+    "width" : 32,
+    "clock" : 66000000,
+    "configuration" : {
+      "driver" : "ahci",
+      "latency" : "64"
+    },
+    "capabilities" : {
+      "sata" : true,
+      "ahci_1.0" : true,
+      "bus_master" : "bus mastering",
+      "cap_list" : "PCI capabilities listing",
+      "emulated" : "Emulated device"
+    }
+  },
+  {
+    "id" : "usb",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "USB:1:3",
+    "description" : "Mass storage device",
+    "product" : "SC311 SATA 256G",
+    "vendor" : "SK hynix",
+    "physid" : "1",
+    "businfo" : "usb@1:1",
+    "logicalname" : "scsi2",
+    "version" : "1.00",
+    "serial" : "12345678D557",
+    "configuration" : {
+      "driver" : "uas",
+      "speed" : "480Mbit/s"
+    },
+    "capabilities" : {
+      "usb-2.10" : true,
+      "scsi" : "SCSI"
+    }
+  },
+  {
+    "id" : "usb:0",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "SCSI:01",
+    "description" : "Mass storage device",
+    "product" : "USB2.0-CRW",
+    "vendor" : "Generic",
+    "physid" : "2",
+    "businfo" : "usb@2:2",
+    "logicalname" : "scsi1",
+    "version" : "58.88",
+    "serial" : "20071114173400000",
+    "configuration" : {
+      "driver" : "ums-realtek",
+      "maxpower" : "500mA",
+      "speed" : "480Mbit/s"
+    },
+    "capabilities" : {
+      "usb-2.00" : "USB 2.0",
+      "scsi" : "SCSI",
+      "emulated" : "Emulated device",
+      "scsi-host" : "SCSI host adapter"
+    }
+  }
+]
+
