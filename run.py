@@ -3,6 +3,7 @@
 #os.system("chown -R $USER:wheel " + root)
 
 import os, json
+from datetime import date
 
 root = os.getcwd()
 tmpfs = root + '/benchmarks/tempfs'
@@ -215,7 +216,19 @@ def main():
 
     # run the tests
     old = os.getcwd()
-    results_dir = input("Directory name for results: ")
+    
+    # create a uniquely named folder for these tests' results
+    cur_date = str(date.today())[5:]
+    rdir = cur_date + "_" + prog[2:]
+    #results_dir = input("Directory name for results: ")
+    count = 1
+    results_dir = rdir
+    while os.path.isdir(results_dir):
+        results_dir = rdir + "_" + str(count)
+        count += 1
+
+    print("Created and writing to:", results_dir)
+
     os.mkdir(results_dir);
     os.chdir(results_dir);
 
