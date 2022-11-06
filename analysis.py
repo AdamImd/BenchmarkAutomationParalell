@@ -6,7 +6,9 @@
 import os, csv
 import matplotlib.pyplot as plt
 
-CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
+#CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
+#CPU = ["ThinkPadX120e"]
+CPU = ["Latitude7480"]
 
 def read_data(fname):
     run = {}
@@ -61,9 +63,11 @@ def generate_data(data, machine, test_foldr):
     machines = list of machines to plot this data for
     pf = boolean, indicates whether we want to compare for prefetch on/off
         (only use prefetcher off if this is false)
+    save = boolean, indicates whether we want to save the plot to a file
 Uses the data dictionary to generate a plot of some desired data
+If saving a plot, uses a standard format and saves to plot_data
 '''
-def generate_plots(data, x_cat, y_cat, machines, pf = True, flags = None):
+def generate_plots(data, x_cat, y_cat, machines, test_name, pf = True, flags = None, save = True):
     #x_cat = 'L1-dcache-loads'
     #y_cat = 'L1-dcache-load-misses'
     plt.figure(figsize=(7,7))
@@ -102,13 +106,18 @@ def generate_plots(data, x_cat, y_cat, machines, pf = True, flags = None):
     plt.xlabel(x_cat, fontsize = 20)
     plt.ylabel(y_cat, fontsize = 20)
     plt.legend(legend_list)
+    if save:
+        ms = "-for-" + "-".join(machines)
+        root = os.getcwd()
+        plt.savefig(root + "\\plot_data\\" + test_name + "-" + y_cat + "-vs-" + x_cat + ms + ".png")
     plt.show()
 
 def main():
     root = os.getcwd()
     #machine = input("Enter the machine to get data for: ")
     machine = CPU
-    x_cat = 'L1-dcache-loads'
+    #x_cat = 'L1-dcache-loads'
+    x_cat = 'cycles'
     y_cat = 'L1-dcache-load-misses'
 
     test_foldr = input("Enter the folder containing all test data: ")
@@ -118,7 +127,7 @@ def main():
     for machine in CPU:
         data = generate_data(data, machine, test_foldr)
 
-    generate_plots(data, x_cat, y_cat, CPU)
+    generate_plots(data, x_cat, y_cat, CPU, test_foldr)
 
 
 
