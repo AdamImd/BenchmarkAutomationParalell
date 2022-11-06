@@ -1,0 +1,105 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0001",
+  "description" : "Notebook",
+  "product" : "Latitude 7480 (07A0)",
+  "vendor" : "Dell Inc.",
+  "serial" : "1DLHHM2",
+  "width" : 64,
+  "configuration" : {
+    "boot" : "normal",
+    "chassis" : "notebook",
+    "family" : "Latitude",
+    "sku" : "07A0",
+    "uuid" : "4c4c4544-0044-4c10-8048-b1c04f484d32"
+  },
+  "capabilities" : {
+    "smbios-3.0.0" : "SMBIOS version 3.0.0",
+    "dmi-3.0.0" : "DMI version 3.0.0",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:00",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "0",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:01",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "1",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:04",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "4",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:05",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "5",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:06",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "6",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:07",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "7",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+
