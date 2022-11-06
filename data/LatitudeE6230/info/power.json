@@ -1,0 +1,32 @@
+[
+  {
+    "id" : "battery",
+    "class" : "power",
+    "claimed" : true,
+    "handle" : "DMI:1600",
+    "product" : "DELL F7W7V17",
+    "vendor" : "Samsung SDI",
+    "physid" : "1",
+    "version" : "07/14/2011",
+    "serial" : "7A11",
+    "slot" : "Sys. Battery Bay",
+    "units" : "mWh",
+    "capacity" : 62160,
+    "configuration" : {
+      "voltage" : "11.1V"
+    }
+  },
+  {
+    "id" : "power",
+    "class" : "power",
+    "description" : "To Be Filled By O.E.M.",
+    "product" : "To Be Filled By O.E.M.",
+    "vendor" : "To Be Filled By O.E.M.",
+    "physid" : "2",
+    "version" : "To Be Filled By O.E.M.",
+    "serial" : "To Be Filled By O.E.M.",
+    "units" : "mWh",
+    "capacity" : 130
+  }
+]
+

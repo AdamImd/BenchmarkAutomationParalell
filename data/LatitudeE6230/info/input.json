@@ -1,0 +1,160 @@
+[
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Dock Mic",
+    "physid" : "0",
+    "logicalname" : ["input10", "/dev/input/event9"]
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Headset Mic",
+    "physid" : "1",
+    "logicalname" : ["input11", "/dev/input/event10"]
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Dock Line Out",
+    "physid" : "2",
+    "logicalname" : ["input12", "/dev/input/event11"]
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Headphone",
+    "physid" : "3",
+    "logicalname" : ["input13", "/dev/input/event12"]
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=3",
+    "physid" : "4",
+    "logicalname" : ["input14", "/dev/input/event13"]
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=7",
+    "physid" : "5",
+    "logicalname" : ["input15", "/dev/input/event14"]
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=8",
+    "physid" : "6",
+    "logicalname" : ["input16", "/dev/input/event15"]
+  },
+  {
+    "id" : "pnp00:05",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "PnP device PNP0303",
+    "physid" : "5",
+    "configuration" : {
+      "driver" : "i8042 kbd"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Lid Switch",
+    "physid" : "3",
+    "logicalname" : ["input0", "/dev/input/event0"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "4",
+    "logicalname" : ["input1", "/dev/input/event1"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Sleep Button",
+    "physid" : "5",
+    "logicalname" : ["input2", "/dev/input/event2"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "6",
+    "logicalname" : ["input3", "/dev/input/event3"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AT Translated Set 2 keyboard",
+    "physid" : "7",
+    "logicalname" : ["input4", "/dev/input/event4", "input4::capslock", "input4::numlock", "input4::scrolllock"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AlpsPS/2 ALPS GlidePoint",
+    "physid" : "8",
+    "logicalname" : ["input6", "/dev/input/event5", "/dev/input/mouse0"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Dell WMI hotkeys",
+    "physid" : "9",
+    "logicalname" : ["input8", "/dev/input/event7"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:7",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "a",
+    "logicalname" : ["input9", "/dev/input/event8"],
+    "capabilities" : {
+      "platform" : true
+    }
+  }
+]
+

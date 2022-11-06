@@ -1,0 +1,173 @@
+[
+  {
+    "id" : "pci",
+    "class" : "bridge",
+    "claimed" : true,
+    "handle" : "PCIBUS:0000:00",
+    "description" : "Host bridge",
+    "product" : "3rd Gen Core processor DRAM Controller",
+    "vendor" : "Intel Corporation",
+    "physid" : "100",
+    "businfo" : "pci@0000:00:00.0",
+    "version" : "09",
+    "width" : 32,
+    "clock" : 33000000,
+    "configuration" : {
+      "driver" : "ivb_uncore"
+    }
+  },
+      {
+        "id" : "pci:0",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:01",
+        "description" : "PCI bridge",
+        "product" : "7 Series/C216 Chipset Family PCI Express Root Port 1",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c",
+        "businfo" : "pci@0000:00:1c.0",
+        "version" : "c4",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:1",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:02",
+        "description" : "PCI bridge",
+        "product" : "7 Series/C210 Series Chipset Family PCI Express Root Port 2",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.1",
+        "businfo" : "pci@0000:00:1c.1",
+        "version" : "c4",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:2",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:03",
+        "description" : "PCI bridge",
+        "product" : "7 Series/C210 Series Chipset Family PCI Express Root Port 3",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.2",
+        "businfo" : "pci@0000:00:1c.2",
+        "version" : "c4",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:3",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:07",
+        "description" : "PCI bridge",
+        "product" : "7 Series/C216 Chipset Family PCI Express Root Port 4",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.3",
+        "businfo" : "pci@0000:00:1c.3",
+        "version" : "c4",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:4",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:0b",
+        "description" : "PCI bridge",
+        "product" : "7 Series/C210 Series Chipset Family PCI Express Root Port 6",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.5",
+        "businfo" : "pci@0000:00:1c.5",
+        "version" : "c4",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "isa",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCI:0000:00:1f.0",
+        "description" : "ISA bridge",
+        "product" : "QM77 Express Chipset LPC Controller",
+        "vendor" : "Intel Corporation",
+        "physid" : "1f",
+        "businfo" : "pci@0000:00:1f.0",
+        "version" : "04",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "lpc_ich",
+          "latency" : "0"
+        },
+        "capabilities" : {
+          "isa" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      }
+]
+
