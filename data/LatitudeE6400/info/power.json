@@ -1,0 +1,18 @@
+[
+  {
+    "id" : "battery",
+    "class" : "power",
+    "claimed" : true,
+    "handle" : "DMI:1600",
+    "product" : "DELL PT43697",
+    "vendor" : "Samsung SDI",
+    "physid" : "1",
+    "slot" : "Sys. Battery Bay",
+    "units" : "mWh",
+    "capacity" : 52000,
+    "configuration" : {
+      "voltage" : "11.1V"
+    }
+  }
+]
+

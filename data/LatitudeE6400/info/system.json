@@ -1,0 +1,116 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0100",
+  "description" : "Portable Computer",
+  "product" : "Latitude E6400",
+  "vendor" : "Dell Inc.",
+  "serial" : "6R5XRK1",
+  "width" : 64,
+  "configuration" : {
+    "boot" : "normal",
+    "chassis" : "portable",
+    "uuid" : "4c4c4544-0052-3510-8058-b6c04f524b31"
+  },
+  "capabilities" : {
+    "smbios-2.4" : "SMBIOS version 2.4",
+    "dmi-2.4" : "DMI version 2.4",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:02",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "2",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:03",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "3",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:04",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0103",
+    "physid" : "4",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:06",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "6",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:07",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "7",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:08",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "8",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:09",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "9",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+
