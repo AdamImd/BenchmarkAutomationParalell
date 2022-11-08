@@ -1,36 +1,5 @@
 [
   {
-    "id" : "usb:0",
-    "class" : "input",
-    "claimed" : true,
-    "handle" : "USB:1:2",
-    "description" : "Keyboard",
-    "product" : "USB Receiver",
-    "vendor" : "Logitech",
-    "physid" : "1",
-    "businfo" : "usb@1:1",
-    "version" : "24.11",
-    "configuration" : {
-      "driver" : "usbhid",
-      "maxpower" : "98mA",
-      "speed" : "12Mbit/s"
-    },
-    "capabilities" : {
-      "usb-2.00" : "USB 2.0"
-    }
-  },
-      {
-        "id" : "input",
-        "class" : "input",
-        "claimed" : true,
-        "product" : "Logitech ERGO M575",
-        "physid" : "0",
-        "logicalname" : ["input16", "/dev/input/event5", "/dev/input/mouse1"],
-        "capabilities" : {
-          "usb" : "USB"
-        }
-      },
-  {
     "id" : "input:0",
     "class" : "input",
     "claimed" : true,
@@ -174,7 +143,7 @@
     "claimed" : true,
     "product" : "TPPS/2 IBM TrackPoint",
     "physid" : "9",
-    "logicalname" : ["input32", "/dev/input/event18", "/dev/input/mouse2"],
+    "logicalname" : ["input36", "/dev/input/event6", "/dev/input/mouse2"],
     "capabilities" : {
       "i8042" : "i8042 PC AT keyboard controller"
     }
@@ -183,19 +152,8 @@
     "id" : "input:7",
     "class" : "input",
     "claimed" : true,
-    "product" : "Jabra Elite 85h (AVRCP)",
-    "physid" : "a",
-    "logicalname" : ["input43", "/dev/input/event19"],
-    "capabilities" : {
-      "bluetooth" : "Bluetooth"
-    }
-  },
-  {
-    "id" : "input:8",
-    "class" : "input",
-    "claimed" : true,
     "product" : "SynPS/2 Synaptics TouchPad",
-    "physid" : "b",
+    "physid" : "a",
     "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
     "capabilities" : {
       "i8042" : "i8042 PC AT keyboard controller"

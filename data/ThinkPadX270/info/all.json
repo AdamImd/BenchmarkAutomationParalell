@@ -148,7 +148,7 @@
           "serial" : "None",
           "slot" : "U3E1",
           "units" : "Hz",
-          "size" : 2781803000,
+          "size" : 2161346000,
           "capacity" : 3500000000,
           "width" : 64,
           "clock" : 100000000,
@@ -316,12 +316,6 @@
           }
         },
         {
-          "id" : "generic",
-          "class" : "generic",
-          "physid" : "1",
-          "businfo" : "parisc@1"
-        },
-        {
           "id" : "pci",
           "class" : "bridge",
           "claimed" : true,
@@ -389,7 +383,6 @@
                 "pm" : "Power Management",
                 "msi" : "Message Signalled Interrupts",
                 "xhci" : true,
-                "bus_master" : "bus mastering",
                 "cap_list" : "PCI capabilities listing"
               },
               "children" : [                {
@@ -413,37 +406,6 @@
                   },
                   "children" : [                    {
                       "id" : "usb:0",
-                      "class" : "input",
-                      "claimed" : true,
-                      "handle" : "USB:1:2",
-                      "description" : "Keyboard",
-                      "product" : "USB Receiver",
-                      "vendor" : "Logitech",
-                      "physid" : "1",
-                      "businfo" : "usb@1:1",
-                      "version" : "24.11",
-                      "configuration" : {
-                        "driver" : "usbhid",
-                        "maxpower" : "98mA",
-                        "speed" : "12Mbit/s"
-                      },
-                      "capabilities" : {
-                        "usb-2.00" : "USB 2.0"
-                      },
-                      "children" : [                        {
-                          "id" : "input",
-                          "class" : "input",
-                          "claimed" : true,
-                          "product" : "Logitech ERGO M575",
-                          "physid" : "0",
-                          "logicalname" : ["input16", "/dev/input/event5", "/dev/input/mouse1"],
-                          "capabilities" : {
-                            "usb" : "USB"
-                          }
-                        }]
-                    },
-                    {
-                      "id" : "usb:1",
                       "class" : "communication",
                       "claimed" : true,
                       "handle" : "USB:1:3",
@@ -464,16 +426,16 @@
                       }
                     },
                     {
-                      "id" : "usb:2",
+                      "id" : "usb:1",
                       "class" : "multimedia",
                       "claimed" : true,
-                      "handle" : "USB:1:29",
+                      "handle" : "USB:1:40",
                       "description" : "Video",
                       "product" : "Integrated Camera: Integrated C",
                       "vendor" : "SunplusIT Inc",
                       "physid" : "8",
                       "businfo" : "usb@1:8",
-                      "logicalname" : ["input42", "/dev/input/event6"],
+                      "logicalname" : ["input48", "/dev/input/event5"],
                       "version" : "0.10",
                       "configuration" : {
                         "driver" : "uvcvideo",
@@ -694,10 +656,10 @@
                         "created" : "2022-09-25 00:11:21",
                         "filesystem" : "ext4",
                         "lastmountpoint" : "/",
-                        "modified" : "2022-10-27 09:46:56",
+                        "modified" : "2022-11-03 09:46:40",
                         "mount.fstype" : "ext4",
                         "mount.options" : "ro,noexec,noatime,errors=remount-ro",
-                        "mounted" : "2022-10-27 09:46:57",
+                        "mounted" : "2022-11-03 09:46:41",
                         "state" : "mounted"
                       },
                       "capabilities" : {
@@ -813,7 +775,7 @@
                     "driver" : "iwlwifi",
                     "driverversion" : "5.15.0-52-generic",
                     "firmware" : "36.ca7b901d.0 8265-36.ucode",
-                    "ip" : "10.131.86.196",
+                    "ip" : "10.131.109.146",
                     "latency" : "0",
                     "link" : "yes",
                     "multicast" : "yes",
@@ -1205,14 +1167,14 @@
       "class" : "power",
       "claimed" : true,
       "handle" : "DMI:0024",
-      "product" : "45N1738",
+      "product" : "45N1127",
       "vendor" : "LGC",
       "physid" : "2",
       "slot" : "Rear",
       "units" : "mWh",
-      "capacity" : 71100,
+      "capacity" : 23480,
       "configuration" : {
-        "voltage" : "11.2V"
+        "voltage" : "11.4V"
       }
     },
     {
@@ -1287,7 +1249,7 @@
       "claimed" : true,
       "product" : "TPPS/2 IBM TrackPoint",
       "physid" : "9",
-      "logicalname" : ["input32", "/dev/input/event18", "/dev/input/mouse2"],
+      "logicalname" : ["input36", "/dev/input/event6", "/dev/input/mouse2"],
       "capabilities" : {
         "i8042" : "i8042 PC AT keyboard controller"
       }
@@ -1296,19 +1258,8 @@
       "id" : "input:7",
       "class" : "input",
       "claimed" : true,
-      "product" : "Jabra Elite 85h (AVRCP)",
-      "physid" : "a",
-      "logicalname" : ["input43", "/dev/input/event19"],
-      "capabilities" : {
-        "bluetooth" : "Bluetooth"
-      }
-    },
-    {
-      "id" : "input:8",
-      "class" : "input",
-      "claimed" : true,
       "product" : "SynPS/2 Synaptics TouchPad",
-      "physid" : "b",
+      "physid" : "a",
       "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
       "capabilities" : {
         "i8042" : "i8042 PC AT keyboard controller"
