@@ -19,14 +19,14 @@
     "class" : "power",
     "claimed" : true,
     "handle" : "DMI:0024",
-    "product" : "45N1738",
+    "product" : "45N1127",
     "vendor" : "LGC",
     "physid" : "2",
     "slot" : "Rear",
     "units" : "mWh",
-    "capacity" : 71100,
+    "capacity" : 23480,
     "configuration" : {
-      "voltage" : "11.2V"
+      "voltage" : "11.4V"
     }
   }
 ]
