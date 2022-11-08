@@ -6,9 +6,15 @@
 import os, csv
 import matplotlib.pyplot as plt
 
+CPUs = [
+        "ThinkPadX270", "ThinkPadX61Tablet", "ThinkPadX120e",
+        "Latitude7480", "LatitudeE6230", "LatitudeE6400",
+        "LatitudeE6500",
+        ]
+
 #CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
 #CPU = ["ThinkPadX120e"]
-CPU = ["Latitude7480"]
+CPU = [CPUs[3]]
 
 def read_data(fname):
     run = {}
@@ -118,7 +124,11 @@ def main():
     machine = CPU
     #x_cat = 'L1-dcache-loads'
     x_cat = 'cycles'
-    y_cat = 'L1-dcache-load-misses'
+    y_cats = [
+             'L1-dcache-load-misses', 'L1-dcache-loads',
+             'L1-icache-load-misses', #'L1-icache-loads', not supported!
+             'LLC-loads', 'LLC-load-misses',
+             ]
 
     test_foldr = input("Enter the folder containing all test data: ")
 
@@ -126,54 +136,9 @@ def main():
 
     for machine in CPU:
         data = generate_data(data, machine, test_foldr)
-
-    generate_plots(data, x_cat, y_cat, CPU, test_foldr)
-
-
-
-#        m = machine
-#        data[m] = dict()
-#
-#        foldr = root + "/data/" + machine + "/" + test_foldr + "/"
-#
-#        # get list of compiler folders
-#        compilers = list(filter(lambda p: os.path.isdir(foldr + p), os.listdir(foldr)))
-#        for c in compilers:
-#            data[m][c] = dict()
-#            cpath = foldr + c + "/"
-#            # get list of flag folders
-#            flags = list(filter(lambda p: os.path.isdir(cpath + p), os.listdir(cpath)))
-#            for f in flags:
-#                data[m][c][f] = dict()
-#                fpath = cpath + f + "/"
-#                
-#                for pf in [True, False]:
-#                    # get all csv files with stat data
-#                    stats = list(filter(lambda x: x[-3:] == "csv", os.listdir((fpath + str(pf)))))
-#                            
-#                    data[m][c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) for fname in stats]
-#
-    # data should now exist
-    # access via data[machine][compiler][flag][prefetch bool][index][desired data field]
-    # e.g., data["ThinkPadX270"]["gcc"]["-O0"][True][4]["branch-misses"]
-
-#    x_cat = 'L1-dcache-loads'
-#    y_cat = 'L1-dcache-load-misses'
-#    plt.figure(figsize=(7,7))
-#    parameter = (("-O0", False), ("-O0", True), ("-O1", False), ("-O1", True), \
-#                ("-O2", False), ("-O2", True), ("-Ofast", False), ("-Ofast", True))
-#    for parm in parameter:
-#        x = []
-#        y = []
-#        # TODO: allow plots with multiple machines' data
-#        for i in data["ThinkPadX270"]["gcc"][parm[0]][parm[1]][:-1]:
-#            x.append(float(i[x_cat][0]))
-#            y.append(float(i[y_cat][0]))
-#        plt.scatter(x, y)
-#    plt.legend([i[0]+"_"+str(i[1]) for i in parameter])
-#    plt.xlabel(x_cat, fontsize=20)
-#    plt.ylabel(y_cat, fontsize=20)
-#    plt.show()
+        
+    for y_cat in y_cats:
+        generate_plots(data, x_cat, y_cat, CPU, test_foldr)
 
 if __name__ == "__main__":
     main()
