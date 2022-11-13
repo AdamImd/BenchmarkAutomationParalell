@@ -197,12 +197,12 @@ def main():
     print("\tUpdated: " + benchmark_data_path + "info/*")
 
     # all compilers and possible flags to test
-    compilers = ["gcc"]
+    compilers = ["gcc", "clang"]
     flags = dict()
     # all possible flag options we might want to test
     flags["gcc"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-fprefetch-loop-arrays"]
     # refine to just 2
-    flags["gcc"] = ["-O0", "-O1", "-O2", "-Ofast"]
+    flags["gcc"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-Os"]
 
     app = "/benchmarks/kernels/fft"
     prog = "./FFT"
