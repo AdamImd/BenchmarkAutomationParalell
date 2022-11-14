@@ -5,6 +5,9 @@
 
 import os, csv
 import matplotlib.pyplot as plt
+# used to control the legend colors for bar plots
+import matplotlib.colors as mcolors
+import matplotlib.patches as mpatches
 import statistics
 
 CPUs = [
@@ -15,8 +18,8 @@ CPUs = [
 
 #CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
 #CPU = ["ThinkPadX120e"]
-#CPU = [CPUs[5], CPUs[6]]
-CPU = [CPUs[4]]
+CPU = [CPUs[2], CPUs[5], CPUs[6]]
+#CPU = [CPUs[4]]
 
 
 def read_data(fname):
@@ -138,9 +141,12 @@ Uses the passed in data dictionary to generate a bar plot for the
 specified machines and categories, with sub-bars for each compiler/setting
 '''
 def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, save = True):
+
+    # define colors to use for bars for consistency across machines
+    colors = list(mcolors.TABLEAU_COLORS)
     
-    plt.figure(figsize = (10,7))
     tot_space = 10
+    plt.figure(figsize = (tot_space,7))
     space_per_m = tot_space / (2*len(machines))
     locs = [2*i*space_per_m for i in range(len(machines))]
     
@@ -149,6 +155,7 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
 
     # legend for subplots and locations of the bars themselves
     legend_list = []
+    minor_labels = []
     minor = []
 
     for (m, loc) in zip(machines, locs):
@@ -166,8 +173,6 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
                     # average the result so we get ONE bar
                     y = statistics.mean(y)
                     legend = ""
-                    # add the machine to the legend if there are multiple
-                    legend += "" if one_m else (m + " ")
                     # add the compiler to the legend
                     legend += c #"" if len(data[m]) == 1 else (" " + c)
                     # add the flag for this test
@@ -175,29 +180,58 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
                     # add the prefetcher if it matters
                     legend += " w/ PF on" if p == True else (" w/ PF off" if p == False and pf else "")
                     # add the data from this branch
+                    # plot for THIS machine
                     for_this.append((legend, y))
-                    legend_list.append(legend)
+                    # overall list of labels
+                    minor_labels.append(legend)
 
         # determine how much space to alloc to each sub-bar
         space_per_setting = space_per_m / len(for_this)
 
+        # plot the bars for this machine and track their legend data
         for i in range(len(for_this)):
             bar_loc = loc - space_per_m / 2 + (i + 1/2) * space_per_setting
             minor.append(bar_loc)
-            plt.bar([bar_loc], [for_this[i][1]], space_per_setting, label = for_this[i][0])
+            # only put unique compiler/flag/prefetch settings in the legend
+            if not (for_this[i][0] in legend_list):
+                legend_list.append(for_this[i][0])
+            # correlate color with the unique legend entry
+            color = colors[legend_list.index(for_this[i][0])]
+            # plot this bar
+            plt.bar([bar_loc], [for_this[i][1]], space_per_setting,
+                    label = for_this[i][0], color = color)
+            
 
     plt.title("Comparison of " + cat + \
               ((" for " + machines[0]) if one_m else ""))
-    if not one_m:
-        plt.xlabel("Machine", fontsize = 20)
+    # for testing
     assert(len(locs) == len(machines))
-    assert(len(minor) == len(legend_list))
-    print("Legend list: ", legend_list)
-    minor_labels = list(map(lambda s: s.replace(" w/ ", "\n"), legend_list))
-    plt.xticks(minor, minor_labels, minor = True, fontsize = 8)
-    plt.xticks(locs, machines, minor = False)
+    assert(len(minor) == len(minor_labels))
+    #print("Legend list: ", legend_list)
+    
     plt.ylabel(cat, fontsize = 20)
-    plt.legend(legend_list)
+    # build the legend based on the unique compiler/flag/prefetch settings tracked
+    legend_entries = []
+    for i in range(len(legend_list)):
+        patch = mpatches.Patch(color = colors[i], label = legend_list[i])
+        legend_entries.append(patch)
+    plt.legend(handles = legend_entries)
+
+    # operate on the axes to show the compiler/flag/prefetch setting under each bar
+    ax = plt.gca()
+    ax.set_xticks(minor)
+    ax.set_xticklabels(minor_labels, fontsize = 8, rotation = "45", ha = 'right')
+    # plot the machines at the TOP if there are multiple (couldn't get major/minor to work)
+    if not one_m:
+        ax2 = ax.twiny()
+        ax2.set_xticks(locs)
+        ax2.set_xticklabels(machines)
+        ax2.set_xlim(ax.get_xlim())
+        
+    # Tweak spacing to prevent clipping of tick-labels off the bottom of the plot
+    plt.subplots_adjust(bottom=0.15)
+
+    # maybe save the plot to a file
     if save:
         ms = "-for-" + "-".join(machines)
         root = os.getcwd()
@@ -223,7 +257,7 @@ def main():
              ]
 
     #test_foldr = input("Enter the folder containing all test data: ")
-    test_foldr = "Test1"
+    test_foldr = "11-06_FFT"
 
     data = dict()
 
