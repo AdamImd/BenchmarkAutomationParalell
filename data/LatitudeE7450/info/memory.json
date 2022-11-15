@@ -1,0 +1,165 @@
+[
+  {
+    "id" : "firmware",
+    "class" : "memory",
+    "claimed" : true,
+    "description" : "BIOS",
+    "vendor" : "Dell Inc.",
+    "physid" : "0",
+    "version" : "A08",
+    "date" : "10/28/2015",
+    "units" : "bytes",
+    "size" : 65536,
+    "capacity" : 12582912,
+    "capabilities" : {
+      "pci" : "PCI bus",
+      "pnp" : "Plug-and-Play",
+      "upgrade" : "BIOS EEPROM can be upgraded",
+      "shadowing" : "BIOS shadowing",
+      "cdboot" : "Booting from CD-ROM/DVD",
+      "bootselect" : "Selectable boot path",
+      "edd" : "Enhanced Disk Drive extensions",
+      "int13floppy1200" : "5.25\" 1.2MB floppy",
+      "int13floppy720" : "3.5\" 720KB floppy",
+      "int13floppy2880" : "3.5\" 2.88MB floppy",
+      "int5printscreen" : "Print Screen key",
+      "int9keyboard" : "i8042 keyboard controller",
+      "int14serial" : "INT14 serial line control",
+      "int17printer" : "INT17 printer control",
+      "acpi" : "ACPI",
+      "usb" : "USB legacy emulation",
+      "smartbattery" : "Smart battery",
+      "biosbootspecification" : "BIOS boot specification",
+      "netboot" : "Function-key initiated network service boot",
+      "uefi" : "UEFI specification is supported"
+    }
+  },
+  {
+    "id" : "cache:0",
+    "class" : "memory",
+    "claimed" : true,
+    "handle" : "DMI:003E",
+    "description" : "L1 cache",
+    "physid" : "3e",
+    "slot" : "L1 Cache",
+    "units" : "bytes",
+    "size" : 32768,
+    "capacity" : 32768,
+    "configuration" : {
+      "level" : "1"
+    },
+    "capabilities" : {
+      "synchronous" : "Synchronous",
+      "internal" : "Internal",
+      "write-back" : "Write-back",
+      "instruction" : "Instruction cache"
+    }
+  },
+  {
+    "id" : "cache:1",
+    "class" : "memory",
+    "claimed" : true,
+    "handle" : "DMI:0043",
+    "description" : "L2 cache",
+    "physid" : "43",
+    "slot" : "L2 Cache",
+    "units" : "bytes",
+    "size" : 262144,
+    "capacity" : 262144,
+    "configuration" : {
+      "level" : "2"
+    },
+    "capabilities" : {
+      "synchronous" : "Synchronous",
+      "internal" : "Internal",
+      "write-back" : "Write-back",
+      "unified" : "Unified cache"
+    }
+  },
+  {
+    "id" : "cache:2",
+    "class" : "memory",
+    "claimed" : true,
+    "handle" : "DMI:0048",
+    "description" : "L3 cache",
+    "physid" : "48",
+    "slot" : "L3 Cache",
+    "units" : "bytes",
+    "size" : 3145728,
+    "capacity" : 3145728,
+    "configuration" : {
+      "level" : "3"
+    },
+    "capabilities" : {
+      "synchronous" : "Synchronous",
+      "internal" : "Internal",
+      "write-back" : "Write-back",
+      "unified" : "Unified cache"
+    }
+  },
+  {
+    "id" : "cache",
+    "class" : "memory",
+    "claimed" : true,
+    "handle" : "DMI:0039",
+    "description" : "L1 cache",
+    "physid" : "39",
+    "slot" : "L1 Cache",
+    "units" : "bytes",
+    "size" : 32768,
+    "capacity" : 32768,
+    "configuration" : {
+      "level" : "1"
+    },
+    "capabilities" : {
+      "synchronous" : "Synchronous",
+      "internal" : "Internal",
+      "write-back" : "Write-back",
+      "data" : "Data cache"
+    }
+  },
+  {
+    "id" : "memory",
+    "class" : "memory",
+    "claimed" : true,
+    "handle" : "DMI:0052",
+    "description" : "System Memory",
+    "physid" : "52",
+    "slot" : "System board or motherboard",
+    "units" : "bytes",
+    "size" : 17179869184
+  },
+      {
+        "id" : "bank:0",
+        "class" : "memory",
+        "claimed" : true,
+        "handle" : "DMI:0057",
+        "description" : "SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)",
+        "product" : "M471B1G73EB0-YK0",
+        "vendor" : "Samsung",
+        "physid" : "0",
+        "serial" : "C38AD780",
+        "slot" : "DIMM A",
+        "units" : "bytes",
+        "size" : 8589934592,
+        "width" : 64,
+        "clock" : 1600000000
+      },
+      {
+        "id" : "bank:1",
+        "class" : "memory",
+        "claimed" : true,
+        "handle" : "DMI:005C",
+        "description" : "SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)",
+        "product" : "M471B1G73QH0-YK0",
+        "vendor" : "Samsung",
+        "physid" : "1",
+        "serial" : "9BB78392",
+        "slot" : "DIMM B",
+        "units" : "bytes",
+        "size" : 8589934592,
+        "width" : 64,
+        "clock" : 1600000000
+      }
+]
+

@@ -1,0 +1,95 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0001",
+  "description" : "Laptop",
+  "product" : "Latitude E7450 (062E)",
+  "vendor" : "Dell Inc.",
+  "serial" : "7JV0G72",
+  "width" : 64,
+  "configuration" : {
+    "administrator_password" : "disabled",
+    "boot" : "normal",
+    "chassis" : "laptop",
+    "frontpanel_password" : "disabled",
+    "keyboard_password" : "disabled",
+    "power-on_password" : "disabled",
+    "sku" : "062E",
+    "uuid" : "4c4c4544-004a-5610-8030-b7c04f473732"
+  },
+  "capabilities" : {
+    "smbios-2.8" : "SMBIOS version 2.8",
+    "dmi-2.8" : "DMI version 2.8",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:00",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "0",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:01",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "1",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:06",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "6",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:07",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "7",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:08",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c31",
+    "physid" : "8",
+    "configuration" : {
+      "driver" : "tpm_tis"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+

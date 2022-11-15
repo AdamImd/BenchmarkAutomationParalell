@@ -203,6 +203,7 @@ def main():
     flags["gcc"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-fprefetch-loop-arrays"]
     # refine to just 2
     flags["gcc"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-Os"]
+    flags["clang"] = ["-O0", "-O1", "-O2", "-O3", "-Ofast", "-Os"]
 
     app = "/benchmarks/kernels/fft"
     prog = "./FFT"
