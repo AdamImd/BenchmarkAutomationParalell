@@ -13,13 +13,14 @@ import statistics
 CPUs = [
         "ThinkPadX270", "ThinkPadX61Tablet", "ThinkPadX120e",
         "Latitude7480", "LatitudeE6230", "LatitudeE6400",
-        "LatitudeE6500",
+        "LatitudeE6500", "LatitudeE7450",
         ]
 
 #CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
 #CPU = ["ThinkPadX120e"]
-CPU = [CPUs[2], CPUs[5], CPUs[6]]
+#CPU = [CPUs[2], CPUs[5], CPUs[6]]
 #CPU = [CPUs[4]]
+CPU = [CPUs[7]]
 
 
 def read_data(fname):
@@ -137,13 +138,15 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, pf = True, flags = N
         (only use prefetcher off if this is false)
     flags = list of flags to use for all CPUs and compilers, or None to use them all
     save = boolean, indicates whether we want to save the plot to a file
+    legend_on = boolean, indicates whether we want to show an explicit legend with colors
 Uses the passed in data dictionary to generate a bar plot for the 
 specified machines and categories, with sub-bars for each compiler/setting
 '''
-def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, save = True):
+def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, save = True, legend_on = True):
 
     # define colors to use for bars for consistency across machines
-    colors = list(mcolors.TABLEAU_COLORS)
+    #colors = list(mcolors.TABLEAU_COLORS)
+    colors = list(mcolors.CSS4_COLORS)
     
     tot_space = 10
     plt.figure(figsize = (tot_space,7))
@@ -199,7 +202,7 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
             color = colors[legend_list.index(for_this[i][0])]
             # plot this bar
             plt.bar([bar_loc], [for_this[i][1]], space_per_setting,
-                    label = for_this[i][0], color = color)
+                    label = for_this[i][0], color = color, edgecolor = "Black")
             
 
     plt.title("Comparison of " + cat + \
@@ -211,11 +214,12 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
     
     plt.ylabel(cat, fontsize = 20)
     # build the legend based on the unique compiler/flag/prefetch settings tracked
-    legend_entries = []
-    for i in range(len(legend_list)):
-        patch = mpatches.Patch(color = colors[i], label = legend_list[i])
-        legend_entries.append(patch)
-    plt.legend(handles = legend_entries)
+    if legend_on:
+        legend_entries = []
+        for i in range(len(legend_list)):
+            patch = mpatches.Patch(color = colors[i], label = legend_list[i])
+            legend_entries.append(patch)
+        plt.legend(handles = legend_entries)
 
     # operate on the axes to show the compiler/flag/prefetch setting under each bar
     ax = plt.gca()
@@ -257,7 +261,7 @@ def main():
              ]
 
     #test_foldr = input("Enter the folder containing all test data: ")
-    test_foldr = "11-06_FFT"
+    test_foldr = "11-15_FFT"
 
     data = dict()
 
@@ -267,7 +271,10 @@ def main():
     #for y_cat in y_cats:
     #    generate_plots(data, x_cat, y_cat, CPU, test_foldr)
 
-    generate_bar_plots(data, y_cats[0], CPU, test_foldr)
+    #for y_cat in y_cats:
+    #    generate_bar_plots(data, y_cat, CPU, test_foldr, legend_on = False)
+
+    generate_bar_plots(data, 'cycles', CPU, test_foldr, legend_on = False)
 
 if __name__ == "__main__":
     main()
