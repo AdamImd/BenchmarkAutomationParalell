@@ -1,0 +1,25 @@
+# started on Sun Nov 20 17:04:59 2022
+
+
+ Performance counter stats for './benchmarks/kernels/fft/FFT -m22':
+
+         8,116,410      mem_load_retired.l1_miss                                      (39.91%)
+     4,012,393,611      L1-dcache-loads                                               (40.04%)
+        56,677,132      L1-dcache-load-misses     #    1.41% of all L1-dcache accesses  (40.10%)
+         3,282,610      LLC-loads                                                     (40.11%)
+         1,086,518      LLC-load-misses           #   33.10% of all LL-cache accesses  (40.01%)
+   <not supported>      L1-icache-loads                                             
+         4,011,564      L1-icache-load-misses                                         (39.87%)
+     4,137,912,285      dTLB-loads                                                    (40.02%)
+           383,441      dTLB-load-misses          #    0.01% of all dTLB cache accesses  (40.03%)
+           191,872      iTLB-loads                                                    (39.97%)
+           112,033      iTLB-load-misses          #   58.39% of all iTLB cache accesses  (39.95%)
+   <not supported>      L1-dcache-prefetches                                        
+   <not supported>      L1-dcache-prefetch-misses                                   
+
+       2.009915594 seconds time elapsed
+
+       1.823914000 seconds user
+       0.180387000 seconds sys
+
+
