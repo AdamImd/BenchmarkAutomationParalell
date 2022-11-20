@@ -268,3 +268,5 @@ def main():
 if __name__ == "__main__":
     main()
 
+#sudo perf stat -e mem_load_retired.l1_miss mem_load_retired.l2_miss mem_load_retired.l3_miss,l2_rqsts.all_pf,l2_rqst.pf_hit,l2_rqst.pf_mis,l2_rqsts.references_l2,branches,branch-misses,cycles,instructions -ddd ./benchmarks/kernels/fft/FFT -m22
+
