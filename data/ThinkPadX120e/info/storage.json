@@ -29,7 +29,7 @@
     "id" : "usb",
     "class" : "storage",
     "claimed" : true,
-    "handle" : "USB:1:3",
+    "handle" : "USB:1:2",
     "description" : "Mass storage device",
     "product" : "SC311 SATA 256G",
     "vendor" : "SK hynix",
