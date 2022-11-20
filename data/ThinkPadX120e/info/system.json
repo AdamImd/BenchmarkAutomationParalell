@@ -1,0 +1,79 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0001",
+  "description" : "Notebook",
+  "product" : "05962R5",
+  "vendor" : "LENOVO",
+  "version" : "ThinkPad X120e",
+  "serial" : "LR0NHAZ",
+  "width" : 64,
+  "configuration" : {
+    "boot" : "normal",
+    "chassis" : "notebook",
+    "family" : "ThinkPad X120e",
+    "uuid" : "345e8401-507b-11cb-ac87-b0b801e5feff"
+  },
+  "capabilities" : {
+    "smbios-2.6" : "SMBIOS version 2.6",
+    "dmi-2.6" : "DMI version 2.6",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:00",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "0",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:01",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "1",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:04",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "4",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:05",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "5",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+

@@ -1,0 +1,139 @@
+[
+  {
+    "id" : "input",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HD-Audio Generic HDMI/DP,pcm=3",
+    "physid" : "0",
+    "logicalname" : ["input16", "/dev/input/event8"]
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA ATI SB Mic",
+    "physid" : "0",
+    "logicalname" : ["input17", "/dev/input/event9"]
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA ATI SB Headphone",
+    "physid" : "1",
+    "logicalname" : ["input18", "/dev/input/event10"]
+  },
+  {
+    "id" : "pnp00:02",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "PnP device PNP0303",
+    "physid" : "2",
+    "configuration" : {
+      "driver" : "i8042 kbd"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "1",
+    "logicalname" : ["input0", "/dev/input/event0"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Sleep Button",
+    "physid" : "2",
+    "logicalname" : ["input1", "/dev/input/event1"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "SynPS/2 Synaptics TouchPad",
+    "physid" : "3",
+    "logicalname" : ["input13", "/dev/input/event6", "/dev/input/mouse0"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "TPPS/2 IBM TrackPoint",
+    "physid" : "4",
+    "logicalname" : ["input14", "/dev/input/event7", "/dev/input/mouse1"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "ThinkPad Extra Buttons",
+    "physid" : "5",
+    "logicalname" : ["input15", "/dev/input/event11"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Lid Switch",
+    "physid" : "6",
+    "logicalname" : ["input2", "/dev/input/event2"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "7",
+    "logicalname" : ["input3", "/dev/input/event3"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:7",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AT Translated Set 2 keyboard",
+    "physid" : "8",
+    "logicalname" : ["input4", "/dev/input/event4", "input4::capslock", "input4::numlock", "input4::scrolllock"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:8",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "9",
+    "logicalname" : ["input9", "/dev/input/event5"],
+    "capabilities" : {
+      "platform" : true
+    }
+  }
+]
+

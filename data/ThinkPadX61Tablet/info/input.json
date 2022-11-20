@@ -1,0 +1,115 @@
+[
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel Headphone",
+    "physid" : "0",
+    "logicalname" : ["input10", "/dev/input/event9"]
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel Mic",
+    "physid" : "1",
+    "logicalname" : ["input8", "/dev/input/event7"]
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel Dock Mic",
+    "physid" : "2",
+    "logicalname" : ["input9", "/dev/input/event8"]
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Lid Switch",
+    "physid" : "3",
+    "logicalname" : ["input0", "/dev/input/event0"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Sleep Button",
+    "physid" : "4",
+    "logicalname" : ["input1", "/dev/input/event1"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Wacom Serial Penabled Pen",
+    "physid" : "5",
+    "logicalname" : ["input13", "/dev/input/event10", "/dev/input/mouse1"],
+    "capabilities" : {
+      "rs232" : "RS-232 serial"
+    }
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "6",
+    "logicalname" : ["input2", "/dev/input/event2"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AT Translated Set 2 keyboard",
+    "physid" : "7",
+    "logicalname" : ["input3", "/dev/input/event3", "input3::capslock", "input3::numlock", "input3::scrolllock"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "TPPS/2 IBM TrackPoint",
+    "physid" : "8",
+    "logicalname" : ["input5", "/dev/input/event4", "/dev/input/mouse0"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "ThinkPad Extra Buttons",
+    "physid" : "9",
+    "logicalname" : ["input6", "/dev/input/event5"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:7",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "a",
+    "logicalname" : ["input7", "/dev/input/event6"],
+    "capabilities" : {
+      "platform" : true
+    }
+  }
+]
+

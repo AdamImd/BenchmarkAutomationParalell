@@ -1,0 +1,104 @@
+[
+{
+  "id" : "test",
+  "class" : "system",
+  "claimed" : true,
+  "handle" : "DMI:0001",
+  "description" : "Laptop",
+  "product" : "Latitude E6230",
+  "vendor" : "Dell Inc.",
+  "version" : "01",
+  "serial" : "B3TT3X1",
+  "width" : 64,
+  "configuration" : {
+    "boot" : "normal",
+    "chassis" : "laptop",
+    "uuid" : "4c4c4544-0033-5410-8054-c2c04f335831"
+  },
+  "capabilities" : {
+    "smbios-2.7" : "SMBIOS version 2.7",
+    "dmi-2.7" : "DMI version 2.7",
+    "smp" : "Symmetric Multi-Processing",
+    "vsyscall32" : "32-bit processes"
+  }
+},
+  {
+    "id" : "pnp00:00",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "0",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:01",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "1",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:02",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0b00",
+    "physid" : "2",
+    "configuration" : {
+      "driver" : "rtc_cmos"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:04",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "4",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:08",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c02",
+    "physid" : "8",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "pnp00:09",
+    "class" : "system",
+    "claimed" : true,
+    "product" : "PnP device PNP0c01",
+    "physid" : "9",
+    "configuration" : {
+      "driver" : "system"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  }
+]
+

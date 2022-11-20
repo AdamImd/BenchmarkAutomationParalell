@@ -1,0 +1,52 @@
+[
+  {
+    "id" : "usb",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "USB:3:2",
+    "description" : "Mass storage device",
+    "product" : "SC311 SATA 256G",
+    "vendor" : "SK hynix",
+    "physid" : "2",
+    "businfo" : "usb@3:2",
+    "logicalname" : "scsi2",
+    "version" : "1.00",
+    "serial" : "12345678D557",
+    "configuration" : {
+      "driver" : "uas",
+      "speed" : "5000Mbit/s"
+    },
+    "capabilities" : {
+      "usb-3.20" : true,
+      "scsi" : "SCSI"
+    }
+  },
+  {
+    "id" : "raid",
+    "class" : "storage",
+    "claimed" : true,
+    "handle" : "PCI:0000:00:1f.2",
+    "description" : "RAID bus controller",
+    "product" : "82801 Mobile SATA Controller [RAID mode]",
+    "vendor" : "Intel Corporation",
+    "physid" : "1f.2",
+    "businfo" : "pci@0000:00:1f.2",
+    "logicalname" : "scsi1",
+    "version" : "03",
+    "width" : 32,
+    "clock" : 66000000,
+    "configuration" : {
+      "driver" : "ahci",
+      "latency" : "0"
+    },
+    "capabilities" : {
+      "raid" : true,
+      "msi" : "Message Signalled Interrupts",
+      "pm" : "Power Management",
+      "bus_master" : "bus mastering",
+      "cap_list" : "PCI capabilities listing",
+      "emulated" : "Emulated device"
+    }
+  }
+]
+

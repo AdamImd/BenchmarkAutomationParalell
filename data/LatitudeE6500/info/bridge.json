@@ -1,0 +1,215 @@
+[
+  {
+    "id" : "pci",
+    "class" : "bridge",
+    "claimed" : true,
+    "handle" : "PCIBUS:0000:00",
+    "description" : "Host bridge",
+    "product" : "Mobile 4 Series Chipset Memory Controller Hub",
+    "vendor" : "Intel Corporation",
+    "physid" : "100",
+    "businfo" : "pci@0000:00:00.0",
+    "version" : "07",
+    "width" : 32,
+    "clock" : 33000000
+  },
+      {
+        "id" : "pci:0",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:01",
+        "description" : "PCI bridge",
+        "product" : "Mobile 4 Series Chipset PCI Express Graphics Port",
+        "vendor" : "Intel Corporation",
+        "physid" : "1",
+        "businfo" : "pci@0000:00:01.0",
+        "version" : "07",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pm" : "Power Management",
+          "msi" : "Message Signalled Interrupts",
+          "pciexpress" : "PCI Express",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:1",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:0b",
+        "description" : "PCI bridge",
+        "product" : "82801I (ICH9 Family) PCI Express Port 1",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c",
+        "businfo" : "pci@0000:00:1c.0",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:2",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:0c",
+        "description" : "PCI bridge",
+        "product" : "82801I (ICH9 Family) PCI Express Port 2",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.1",
+        "businfo" : "pci@0000:00:1c.1",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:3",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:0d",
+        "description" : "PCI bridge",
+        "product" : "82801I (ICH9 Family) PCI Express Port 3",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.2",
+        "businfo" : "pci@0000:00:1c.2",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:4",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:0e",
+        "description" : "PCI bridge",
+        "product" : "82801I (ICH9 Family) PCI Express Port 4",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.3",
+        "businfo" : "pci@0000:00:1c.3",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:5",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:03",
+        "description" : "PCI bridge",
+        "product" : "82801 Mobile PCI Bridge",
+        "vendor" : "Intel Corporation",
+        "physid" : "1e",
+        "businfo" : "pci@0000:00:1e.0",
+        "version" : "93",
+        "width" : 32,
+        "clock" : 33000000,
+        "capabilities" : {
+          "pci" : true,
+          "subtractive_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+          {
+            "id" : "pcmcia",
+            "class" : "bridge",
+            "claimed" : true,
+            "handle" : "PCI:0000:03:01.0",
+            "description" : "CardBus bridge",
+            "product" : "RL5c476 II",
+            "vendor" : "Ricoh Co Ltd",
+            "physid" : "1",
+            "businfo" : "pci@0000:03:01.0",
+            "version" : "ba",
+            "width" : 64,
+            "clock" : 33000000,
+            "configuration" : {
+              "driver" : "yenta_cardbus",
+              "latency" : "176",
+              "maxlatency" : "5",
+              "mingnt" : "128"
+            },
+            "capabilities" : {
+              "pcmcia" : "PC-Card (PCMCIA)",
+              "bus_master" : "bus mastering",
+              "cap_list" : "PCI capabilities listing"
+            }
+          },
+      {
+        "id" : "isa",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCI:0000:00:1f.0",
+        "description" : "ISA bridge",
+        "product" : "ICH9M-E LPC Interface Controller",
+        "vendor" : "Intel Corporation",
+        "physid" : "1f",
+        "businfo" : "pci@0000:00:1f.0",
+        "version" : "03",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "lpc_ich",
+          "latency" : "0"
+        },
+        "capabilities" : {
+          "isa" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      }
+]
+
