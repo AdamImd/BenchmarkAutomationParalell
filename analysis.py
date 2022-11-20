@@ -187,12 +187,19 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
                     for_this.append((legend, y))
                     # overall list of labels
                     minor_labels.append(legend)
+            # separator for different compilers
+            for_this.append(None)
 
         # determine how much space to alloc to each sub-bar
-        space_per_setting = space_per_m / len(for_this)
+        # subtract 1 so we don't add extra space at the end for the last separator
+        space_per_setting = space_per_m / (len(for_this) - 1)
 
         # plot the bars for this machine and track their legend data
-        for i in range(len(for_this)):
+        for i in range(len(for_this) - 1):
+            # don't put a bar here if at a separator
+            if for_this[i] == None:
+                continue
+
             bar_loc = loc - space_per_m / 2 + (i + 1/2) * space_per_setting
             minor.append(bar_loc)
             # only put unique compiler/flag/prefetch settings in the legend
@@ -274,7 +281,8 @@ def main():
     #for y_cat in y_cats:
     #    generate_bar_plots(data, y_cat, CPU, test_foldr, legend_on = False)
 
-    generate_bar_plots(data, 'cycles', CPU, test_foldr, legend_on = False)
+    # generate_bar_plots(data, 'cycles', CPU, test_foldr, legend_on = False)
+    generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_foldr, legend_on = False)
 
 if __name__ == "__main__":
     main()
