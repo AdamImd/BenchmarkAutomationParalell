@@ -1,0 +1,218 @@
+[
+  {
+    "id" : "pnp00:04",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "PnP device PNP0303",
+    "physid" : "4",
+    "configuration" : {
+      "driver" : "i8042 kbd"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Headphone Mic",
+    "physid" : "0",
+    "logicalname" : ["input19", "/dev/input/event13"]
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=3",
+    "physid" : "1",
+    "logicalname" : ["input20", "/dev/input/event14"]
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=7",
+    "physid" : "2",
+    "logicalname" : ["input21", "/dev/input/event15"]
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=8",
+    "physid" : "3",
+    "logicalname" : ["input22", "/dev/input/event16"]
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=9",
+    "physid" : "4",
+    "logicalname" : ["input23", "/dev/input/event17"]
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=10",
+    "physid" : "5",
+    "logicalname" : ["input24", "/dev/input/event18"]
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Lid Switch",
+    "physid" : "2",
+    "logicalname" : ["input0", "/dev/input/event0"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "3",
+    "logicalname" : ["input1", "/dev/input/event1"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Intel HID events",
+    "physid" : "4",
+    "logicalname" : ["input10", "/dev/input/event7"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Intel HID 5 button array",
+    "physid" : "5",
+    "logicalname" : ["input11", "/dev/input/event8"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Integrated_Webcam_HD: Integrate",
+    "physid" : "6",
+    "logicalname" : ["input12", "/dev/input/event5"],
+    "capabilities" : {
+      "usb" : "USB"
+    }
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "DLL07BE:01 06CB:7A13 Mouse",
+    "physid" : "7",
+    "logicalname" : ["input13", "/dev/input/event6", "/dev/input/mouse0"],
+    "capabilities" : {
+      "i2c" : "I²C bus"
+    }
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "DLL07BE:01 06CB:7A13 Touchpad",
+    "physid" : "8",
+    "logicalname" : ["input14", "/dev/input/event9", "/dev/input/mouse1"],
+    "capabilities" : {
+      "i2c" : "I²C bus"
+    }
+  },
+  {
+    "id" : "input:7",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Dell WMI hotkeys",
+    "physid" : "9",
+    "logicalname" : ["input16", "/dev/input/event10"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:8",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "a",
+    "logicalname" : ["input17", "/dev/input/event11"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:9",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "b",
+    "logicalname" : ["input18", "/dev/input/event12"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:10",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Sleep Button",
+    "physid" : "c",
+    "logicalname" : ["input2", "/dev/input/event2"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:11",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "d",
+    "logicalname" : ["input3", "/dev/input/event3"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:12",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AT Translated Set 2 keyboard",
+    "physid" : "e",
+    "logicalname" : ["input4", "/dev/input/event4", "input4::capslock", "input4::numlock", "input4::scrolllock"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:13",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "PS/2 Synaptics TouchPad",
+    "physid" : "f",
+    "logicalname" : ["input6", "/dev/input/event19", "/dev/input/mouse2"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  }
+]
+

@@ -1,0 +1,24 @@
+# started on Tue Nov 22 00:45:34 2022
+
+4840859,,mem_load_retired.l1_miss,98542548,20.09,,
+763660,,mem_load_retired.l2_miss,102373155,20.87,,
+278148,,mem_load_retired.l3_miss,106309771,21.67,,
+61005535,,l2_rqsts.all_pf,110185505,22.46,,
+26835943,,l2_rqsts.pf_hit,111461717,22.72,,
+91544071,,l2_rqsts.references,111668770,22.77,,
+474515390,,branches,111796104,22.79,,
+1183178,,branch-misses,111815527,22.80,0.25,of all branches
+1708075797,,cycles,111749942,22.78,,
+4117188023,,instructions,137186558,27.97,2.41,insn per cycle
+828789357,,L1-dcache-loads,133086554,27.13,,
+41371494,,L1-dcache-load-misses,129089770,26.32,4.99,of all L1-dcache accesses
+4358804,,LLC-loads,125191033,25.52,,
+815346,,LLC-load-misses,121085710,24.69,18.71,of all LL-cache accesses
+<not supported>,,L1-icache-loads,0,100.00,,
+405632,,L1-icache-load-misses,95576445,19.49,,
+703756077,,dTLB-loads,95474103,19.46,,
+214392,,dTLB-load-misses,95410139,19.45,0.03,of all dTLB cache accesses
+1458,,iTLB-loads,95509011,19.47,,
+114207,,iTLB-load-misses,95711548,19.51,7833.13,of all iTLB cache accesses
+<not supported>,,L1-dcache-prefetches,0,100.00,,
+<not supported>,,L1-dcache-prefetch-misses,0,100.00,,

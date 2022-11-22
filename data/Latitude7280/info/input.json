@@ -1,0 +1,174 @@
+[
+  {
+    "id" : "pnp00:03",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "PnP device PNP0303",
+    "physid" : "3",
+    "configuration" : {
+      "driver" : "i8042 kbd"
+    },
+    "capabilities" : {
+      "pnp" : true
+    }
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH Headphone Mic",
+    "physid" : "0",
+    "logicalname" : ["input11", "/dev/input/event11"]
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=3",
+    "physid" : "1",
+    "logicalname" : ["input12", "/dev/input/event12"]
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=7",
+    "physid" : "2",
+    "logicalname" : ["input13", "/dev/input/event13"]
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=8",
+    "physid" : "3",
+    "logicalname" : ["input14", "/dev/input/event14"]
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=9",
+    "physid" : "4",
+    "logicalname" : ["input15", "/dev/input/event15"]
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "HDA Intel PCH HDMI/DP,pcm=10",
+    "physid" : "5",
+    "logicalname" : ["input16", "/dev/input/event16"]
+  },
+  {
+    "id" : "input:0",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Lid Switch",
+    "physid" : "2",
+    "logicalname" : ["input0", "/dev/input/event0"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:1",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "3",
+    "logicalname" : ["input1", "/dev/input/event1"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:2",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Video Bus",
+    "physid" : "4",
+    "logicalname" : ["input10", "/dev/input/event10"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:3",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Sleep Button",
+    "physid" : "5",
+    "logicalname" : ["input2", "/dev/input/event2"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:4",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Power Button",
+    "physid" : "6",
+    "logicalname" : ["input3", "/dev/input/event3"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:5",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "AT Translated Set 2 keyboard",
+    "physid" : "7",
+    "logicalname" : ["input4", "/dev/input/event4", "input4::capslock", "input4::numlock", "input4::scrolllock"],
+    "capabilities" : {
+      "i8042" : "i8042 PC AT keyboard controller"
+    }
+  },
+  {
+    "id" : "input:6",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "DLL079F:01 044E:120B",
+    "physid" : "8",
+    "logicalname" : ["input5", "/dev/input/event5", "/dev/input/mouse0"],
+    "capabilities" : {
+      "i2c" : "I²C bus"
+    }
+  },
+  {
+    "id" : "input:7",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Intel HID events",
+    "physid" : "9",
+    "logicalname" : ["input6", "/dev/input/event6"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:8",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Intel HID 5 button array",
+    "physid" : "a",
+    "logicalname" : ["input7", "/dev/input/event7"],
+    "capabilities" : {
+      "platform" : true
+    }
+  },
+  {
+    "id" : "input:9",
+    "class" : "input",
+    "claimed" : true,
+    "product" : "Dell WMI hotkeys",
+    "physid" : "b",
+    "logicalname" : ["input8", "/dev/input/event8"],
+    "capabilities" : {
+      "platform" : true
+    }
+  }
+]
+

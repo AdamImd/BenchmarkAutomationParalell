@@ -1,0 +1,171 @@
+[
+  {
+    "id" : "pci",
+    "class" : "bridge",
+    "claimed" : true,
+    "handle" : "PCIBUS:0000:00",
+    "description" : "Host bridge",
+    "product" : "Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers",
+    "vendor" : "Intel Corporation",
+    "physid" : "100",
+    "businfo" : "pci@0000:00:00.0",
+    "version" : "05",
+    "width" : 32,
+    "clock" : 33000000,
+    "configuration" : {
+      "driver" : "skl_uncore"
+    }
+  },
+      {
+        "id" : "pci:0",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:01",
+        "description" : "PCI bridge",
+        "product" : "6th-10th Gen Core Processor PCIe Controller (x16)",
+        "vendor" : "Intel Corporation",
+        "physid" : "1",
+        "businfo" : "pci@0000:00:01.0",
+        "version" : "05",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pm" : "Power Management",
+          "msi" : "Message Signalled Interrupts",
+          "pciexpress" : "PCI Express",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:1",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:02",
+        "description" : "PCI bridge",
+        "product" : "100 Series/C230 Series Chipset Family PCI Express Root Port #1",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c",
+        "businfo" : "pci@0000:00:1c.0",
+        "version" : "f1",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:2",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:03",
+        "description" : "PCI bridge",
+        "product" : "100 Series/C230 Series Chipset Family PCI Express Root Port #2",
+        "vendor" : "Intel Corporation",
+        "physid" : "1c.1",
+        "businfo" : "pci@0000:00:1c.1",
+        "version" : "f1",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:3",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:04",
+        "description" : "PCI bridge",
+        "product" : "100 Series/C230 Series Chipset Family PCI Express Root Port #13",
+        "vendor" : "Intel Corporation",
+        "physid" : "1d",
+        "businfo" : "pci@0000:00:1d.0",
+        "version" : "f1",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "pci:4",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCIBUS:0000:05",
+        "description" : "PCI bridge",
+        "product" : "100 Series/C230 Series Chipset Family PCI Express Root Port #15",
+        "vendor" : "Intel Corporation",
+        "physid" : "1d.6",
+        "businfo" : "pci@0000:00:1d.6",
+        "version" : "f1",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "driver" : "pcieport"
+        },
+        "capabilities" : {
+          "pci" : true,
+          "pciexpress" : "PCI Express",
+          "msi" : "Message Signalled Interrupts",
+          "pm" : "Power Management",
+          "normal_decode" : true,
+          "bus_master" : "bus mastering",
+          "cap_list" : "PCI capabilities listing"
+        }
+      },
+      {
+        "id" : "isa",
+        "class" : "bridge",
+        "claimed" : true,
+        "handle" : "PCI:0000:00:1f.0",
+        "description" : "ISA bridge",
+        "product" : "HM175 Chipset LPC/eSPI Controller",
+        "vendor" : "Intel Corporation",
+        "physid" : "1f",
+        "businfo" : "pci@0000:00:1f.0",
+        "version" : "31",
+        "width" : 32,
+        "clock" : 33000000,
+        "configuration" : {
+          "latency" : "0"
+        },
+        "capabilities" : {
+          "isa" : true,
+          "bus_master" : "bus mastering"
+        }
+      }
+]
+
