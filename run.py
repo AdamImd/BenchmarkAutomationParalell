@@ -72,7 +72,7 @@ def run_exe(run_path, exe_file_path, parameters, output_folder, iters):
     # run the executable with perf record iters times and save the outputs 
     # to files of the form reporti.data in output_folder
     for i in range(iters):
-        os.system("sudo perf record -o " + output_folder + "/record" + str(i) + ".data " +
+        os.system("sudo perf record -o " + output_folder + "/record" + str(i) + ".data " + " >/dev/null 2>&1" +
             exe_file_path + " " + parameters + " >/dev/null") # 2>&1")
     os.chdir(old)
     #print("Running: " + exe_file_path)
@@ -94,14 +94,17 @@ def run_exe_stats(run_path, exe_file_path, parameters, output_folder, iters):
     # csv files in output_folder of the form stati.csv
     for i in range(iters):
         print("Running test", i)
-        os.system("sudo perf stat -d -d -d -o " 
-            + output_folder + "/stat" + str(i) + ".csv -x , " +
+        os.system("sudo perf stat -e mem_load_retired.l1_miss," +
+            "mem_load_retired.l2_miss,mem_load_retired.l3_miss," +
+            "l2_rqsts.all_pf,l2_rqsts.pf_hit,l2_rqsts.references," +
+            "branches,branch-misses,cycles,instructions -ddd -o " +
+            output_folder + "/stat" + str(i) + ".csv -x , " +
             exe_file_path + " " + parameters + " >/dev/null")
 
-    print("Running aggregate test")
-    os.system("sudo perf stat -d -d -d -o " + output_folder + 
-            "/stat_multi.csv -x , " + " -r " + str(iters) + " " +
-            exe_file_path + " " + parameters + " >/dev/null")
+    #print("Running aggregate test")
+    #os.system("sudo perf stat -d -d -d -o " + output_folder + 
+    #        "/stat_multi.csv -x , " + " -r " + str(iters) + " " +
+    #        exe_file_path + " " + parameters + " >/dev/null")
 
     os.chdir(old)
     #print("Running: " + exe_file_path)
@@ -250,7 +253,7 @@ def main():
                 pf_mod("??????", pf, root)
                 outpath = os.getcwd() 
                 # run many tests and collect data for particular choice of c, f, pf
-                run_exe(tmpfs, prog, inpt, outpath, records)
+                #run_exe(tmpfs, prog, inpt, outpath, records)
                 run_exe_stats(tmpfs, prog, inpt, outpath, stats)
                 os.chdir("../");
             os.chdir("../");
@@ -268,5 +271,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-#sudo perf stat -e mem_load_retired.l1_miss mem_load_retired.l2_miss mem_load_retired.l3_miss,l2_rqsts.all_pf,l2_rqst.pf_hit,l2_rqst.pf_mis,l2_rqsts.references_l2,branches,branch-misses,cycles,instructions -ddd ./benchmarks/kernels/fft/FFT -m22
 
