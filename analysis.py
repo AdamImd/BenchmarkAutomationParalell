@@ -20,8 +20,8 @@ CPUs = [
 #CPU = ["ThinkPadX120e"]
 #CPU = [CPUs[2], CPUs[5], CPUs[6]]
 #CPU = [CPUs[4]]
-CPU = [CPUs[7]]
-
+#CPU = [CPUs[7]]
+CPU = [CPUs[2], CPUs[7]]
 
 def read_data(fname):
     run = {}
@@ -62,7 +62,8 @@ def generate_data(data, machine, test_foldr):
                 # get all csv files with stat data
                 stats = list(filter(lambda x: x[-3:] == "csv", os.listdir((fpath + str(pf)))))
                         
-                data[m][c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) for fname in stats]
+                data[m][c][f][pf] = [read_data(fpath + str(pf) + "/" + fname) \
+                                     for fname in stats if not ("multi" in fname)]
     
     return data
 
@@ -98,7 +99,7 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, pf = True, flags = N
                 pfs = (data[m][c][f] if pf else ["False"])
                 for p in pfs:
                     # [:-1] --> exclude the multi from the data to plot
-                    to_plot = data[m][c][f][p][:-1]
+                    to_plot = data[m][c][f][p] #[:-1]
                     # get the first value in the CSV, the number for this category,
                     # for each of the x and y datapoints
                     x = list(map(lambda d: float(d[x_cat][0]), to_plot))
@@ -166,10 +167,10 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
         for c in data[m]:
             fs = (data[m][c] if flags == None else flags)
             for f in fs:
-                pfs = (data[m][c][f] if pf else ["False"])
+                pfs = (data[m][c][f] if pf else [False])
                 for p in pfs:
                     # [:-1] --> exclude the multi from the data to plot
-                    to_plot = data[m][c][f][p][:-1]
+                    to_plot = data[m][c][f][p] #[:-1]
                     # get the first value in the CSV, the number for this category,
                     # for each of the datapoints
                     y = list(map(lambda d: float(d[cat][0]), to_plot))
@@ -272,8 +273,20 @@ def main():
 
     data = dict()
 
+    #for machine in CPU:
+    #    data = generate_data(data, machine, test_foldr)
+
+    test_foldr1 = "11-15_FFT"
+    test_foldr2 = "11-20_FFT"
     for machine in CPU:
-        data = generate_data(data, machine, test_foldr)
+        try:
+            data = generate_data(data, machine, test_foldr1)
+        except FileNotFoundError:
+            print("Failed to find test:", test_foldr1, "for", machine)
+        try:
+            data = generate_data(data, machine, test_foldr2)
+        except FileNotFoundError:
+            print("Failed to find test:", test_foldr2, "for", machine)
         
     #for y_cat in y_cats:
     #    generate_plots(data, x_cat, y_cat, CPU, test_foldr)
@@ -281,8 +294,11 @@ def main():
     #for y_cat in y_cats:
     #    generate_bar_plots(data, y_cat, CPU, test_foldr, legend_on = False)
 
-    # generate_bar_plots(data, 'cycles', CPU, test_foldr, legend_on = False)
-    generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_foldr, legend_on = False)
+    test_name = "11-XX-FFT"
+
+    generate_bar_plots(data, 'instructions', CPU, test_name, legend_on = False, pf = False)
+    #generate_bar_plots(data, 'L1-dcache-loads', CPU, test_name, legend_on = False)
+    #generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_name, legend_on = False)
 
 if __name__ == "__main__":
     main()
