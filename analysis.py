@@ -14,6 +14,7 @@ CPUs = [
         "ThinkPadX270", "ThinkPadX61Tablet", "ThinkPadX120e",
         "Latitude7480", "LatitudeE6230", "LatitudeE6400",
         "LatitudeE6500", "LatitudeE7450",
+        "ThinkPadT470", "Latitude7280", "XPS_15_9560",
         ]
 
 #CPU = ["ThinkPadX270"] #, "ThinkPadX61Tablet"]
@@ -21,7 +22,9 @@ CPUs = [
 #CPU = [CPUs[2], CPUs[5], CPUs[6]]
 #CPU = [CPUs[4]]
 #CPU = [CPUs[7]]
-CPU = [CPUs[2], CPUs[7]]
+#CPU = [CPUs[2], CPUs[7]]
+CPU = [CPUs[8], CPUs[10]]
+#CPU = CPUs[8:]
 
 def read_data(fname):
     run = {}
@@ -96,7 +99,7 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, pf = True, flags = N
         for c in data[m]:
             fs = (data[m][c] if flags == None else flags)
             for f in fs:
-                pfs = (data[m][c][f] if pf else ["False"])
+                pfs = (data[m][c][f] if pf else [False])
                 for p in pfs:
                     # [:-1] --> exclude the multi from the data to plot
                     to_plot = data[m][c][f][p] #[:-1]
@@ -149,7 +152,7 @@ def generate_bar_plots(data, cat, machines, test_name, pf = True, flags = None, 
     #colors = list(mcolors.TABLEAU_COLORS)
     colors = list(mcolors.CSS4_COLORS)
     
-    tot_space = 10
+    tot_space = 15
     plt.figure(figsize = (tot_space,7))
     space_per_m = tot_space / (2*len(machines))
     locs = [2*i*space_per_m for i in range(len(machines))]
@@ -256,28 +259,36 @@ def main():
     root = os.getcwd()
     #machine = input("Enter the machine to get data for: ")
     machine = CPU
+    add_new = True
     #x_cat = 'L1-dcache-loads'
     x_cat = 'cycles'
     y_cats = [
              'L1-dcache-loads', 'L1-dcache-load-misses', 
-             'context-switches', 'L1-icache-load-misses',
-             'page-faults', 'cpu-migrations',
+             #'context-switches',
+             'L1-icache-load-misses',
+             #'page-faults', 'cpu-migrations',
              'instructions', 'branch-misses', 'branches',
              'dTLB-loads', 'dTLB-load-misses',
              'iTLB-loads', 'iTLB-load-misses',
              'LLC-loads', 'LLC-load-misses',
              ]
+    if add_new:
+        y_cats += [
+             'mem_load_retired.l1_miss', 'mem_load_retired.l2_miss',
+             'mem_load_retired.l3_miss', 'l2_rqsts.all_pf',
+             'l2_rqsts.pf_hit', 'l2_rqsts.references',
+             ]
 
     #test_foldr = input("Enter the folder containing all test data: ")
-    test_foldr = "11-15_FFT"
+    test_foldr = "11-XX_FFT"
 
     data = dict()
 
     #for machine in CPU:
     #    data = generate_data(data, machine, test_foldr)
 
-    test_foldr1 = "11-15_FFT"
-    test_foldr2 = "11-20_FFT"
+    test_foldr1 = "11-21_FFT"
+    test_foldr2 = "11-22_FFT"
     for machine in CPU:
         try:
             data = generate_data(data, machine, test_foldr1)
@@ -294,11 +305,18 @@ def main():
     #for y_cat in y_cats:
     #    generate_bar_plots(data, y_cat, CPU, test_foldr, legend_on = False)
 
-    test_name = "11-XX-FFT"
+    #test_name = "11-XX-FFT"
 
-    generate_bar_plots(data, 'instructions', CPU, test_name, legend_on = False, pf = False)
-    #generate_bar_plots(data, 'L1-dcache-loads', CPU, test_name, legend_on = False)
-    #generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_name, legend_on = False)
+    #generate_bar_plots(data, 'instructions', CPU, test_name, legend_on = False, pf = False)
+    generate_bar_plots(data, 'L1-dcache-loads', CPU, test_foldr, legend_on = False)
+    generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_foldr, legend_on = False)
+    generate_bar_plots(data, 'mem_load_retired.l1_miss', CPU, test_foldr, legend_on = False)
+
+    generate_plots(data, 'l2_rqsts.references', 'l2_rqsts.all_pf', [CPU[0]], test_foldr)
+
+    #generate_plots(data, 'branches', 'branch-misses', [CPU[1]], test_foldr, pf = False)
+    #generate_plots(data, 'iTLB-load-misses', 'l2_rqsts.pf_hit', [CPU[2]], test_foldr, pf = True)
+
 
 if __name__ == "__main__":
     main()
