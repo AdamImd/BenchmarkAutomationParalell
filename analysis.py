@@ -116,7 +116,7 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, \
         for c in cs:
             fs = (data[m][c] if flags == None else flags)
             for f in fs:
-                pfs = (data[m][c][f] if pf == None else [pf])
+                pfs = (data[m][c][f] if pf == None else pf)
                 for p in pfs:
                     # [:-1] --> exclude the multi from the data to plot
                     to_plot = data[m][c][f][p] #[:-1]
@@ -124,7 +124,10 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, \
                     # for each of the x and y datapoints
                     x = list(map(lambda d: float(d[x_cat][0]), to_plot))
                     y = list(map(lambda d: float(d[y_cat][0]), to_plot))
-                    plt.scatter(x, y, edgecolors = 'black')
+                    if total > 10:
+                        plt.scatter(x, y, edgecolors = 'black')
+                    else:
+                        plt.scatter(x, y)
                     legend = ""
                     # add the machine to the legend if there are multiple
                     legend += "" if one_m else (m + " ")
@@ -145,7 +148,8 @@ def generate_plots(data, x_cat, y_cat, machines, test_name, \
     if save:
         ms = "-for-" + "-".join(machines)
         root = os.getcwd()
-        plt.savefig(root + "\\plot_data\\" + test_name + "-" + y_cat + "-vs-" + x_cat + ms + ".png")
+        compiler = "" if compilers == None else "-with-" + "-".join(compilers)
+        plt.savefig(root + "\\plot_data\\" + test_name + "-" + y_cat + "-vs-" + x_cat + ms + compiler + ".png")
     plt.show()
 
 '''
@@ -189,7 +193,7 @@ def generate_bar_plots(data, cat, machines, test_name, \
         for c in cs:
             fs = (data[m][c] if flags == None else flags)
             for f in fs:
-                pfs = (data[m][c][f] if pf else [False])
+                pfs = (data[m][c][f] if pf == None else pf)
                 for p in pfs:
                     # [:-1] --> exclude the multi from the data to plot
                     to_plot = data[m][c][f][p] #[:-1]
@@ -332,8 +336,26 @@ def main():
     #generate_bar_plots(data, 'L1-dcache-load-misses', CPU, test_foldr, legend_on = False)
     #generate_bar_plots(data, 'mem_load_retired.l1_miss', CPU, test_foldr, legend_on = False)
 
-    generate_plots(data, 'l2_rqsts.references', 'l2_rqsts.all_pf', [CPU[0]], test_foldr)
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.references', [CPU[0]], test_foldr, \
+                   pf = [True], compilers = ["gcc"])
+    
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.references', [CPU[1]], test_foldr, \
+                   pf = [True], compilers = ["gcc"])
 
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.pf_hit', [CPU[0]], test_foldr, \
+                   pf = [True], compilers = ["gcc"])
+    
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.pf_hit', [CPU[1]], test_foldr, \
+                   pf = [True], compilers = ["gcc"])
+
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.pf_hit', [CPU[0]], test_foldr, \
+                   pf = [True], compilers = ["clang"])
+    
+    generate_plots(data, 'l2_rqsts.all_pf', 'l2_rqsts.pf_hit', [CPU[1]], test_foldr, \
+                   pf = [True], compilers = ["clang"])
+
+    #generate_plots(data, 'instructions', 'l2_rqsts.all_pf', [CPU[0]], test_foldr, \
+     #              pf = [True], compilers = ["gcc"])
     #generate_plots(data, 'branches', 'branch-misses', [CPU[1]], test_foldr, pf = False)
     #generate_plots(data, 'iTLB-load-misses', 'l2_rqsts.pf_hit', [CPU[2]], test_foldr, pf = True)
 
