@@ -38,8 +38,8 @@ def main():
             all_data = []
             with open(kernel, "r") as kernel_file:
                 filepaths = csv.reader(kernel_file)
-                for filepath, time in filepaths:
-                    print(filepath)
+                for filepath, cycles, micros, acc in filepaths:
+                    print("Seconds: {}; Cycles: {}; Acc: {}".format(int(micros)/1000000.0, cycles, acc))
                     data = []
                     try:
                         with open(filepath, "r") as csvfile:

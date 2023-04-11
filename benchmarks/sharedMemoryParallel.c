@@ -3,11 +3,12 @@
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
-#include "./config.h"
 #include <omp.h>
-#include "kernels.h"
+#include <sys/time.h>
+#include "./config.h"
+#include "./kernels.h"
 
-// gcc -fopenmp -o shared ./sharedMemoryParallel.c 
+// gcc -fopenmp -o shared ./sharedMemoryParallel.c ./kernels.c
 
 int main() {
     int integerDimension = DIMENSION;
@@ -28,12 +29,14 @@ int main() {
         }
     }
     
-    const int len_kernel = 1;
+    const int len_kernel = 2;
     double(*kernels[])(double array[][integerDimension], int integerDimension, double precision, int precisionCount) = {
         single,
+        naive_parallel,
         };
     char* kernel_names[] = {
-        "single"
+        "single",
+        "naive_parallel",
         };
 
 
@@ -50,25 +53,31 @@ int main() {
 
         memcpy(array, copy, integerDimension * integerDimension * sizeof(double));
         while (1) {
-            // Run the kernel
-            // Get the microsecond time:
-            clock_t start = clock();
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+            unsigned long wall_micros = 1000000 * tv.tv_sec + tv.tv_usec;
+            clock_t cycles = clock();
+
             precisionCount = kernels[i](array, integerDimension, precision, precisionCount);
-            time_t end = clock();
+
+            cycles = clock() - cycles;
+            gettimeofday(&tv, NULL);
+            wall_micros = 1000000 * tv.tv_sec + tv.tv_usec - wall_micros;
+
 
             // Filename format: /tmp/parallel-<dimension>-<precision>_<iteration>.csv
             char* file_name = malloc(100);
-            sprintf(file_name, "/tmp/%s-%d-%f_%d.csv", kernel_names[i], integerDimension, precision, iteration);
+            sprintf(file_name, "/tmp/data_%s-%d-%f_%d.csv", kernel_names[i], integerDimension, precision, iteration);
             FILE *fp = fopen(file_name, "w");
-            for (int i = 0; i < integerDimension; i++) {
-                for (int j = 0; j < integerDimension; j++) {
+            for (int i = 0; i < integerDimension; i+=LOG_STEP) {
+                for (int j = 0; j < integerDimension; j+=LOG_STEP) {
                     fprintf(fp, "%f,", array[i][j]);
                 }
                 fprintf(fp, "\n");
             }
             // Print the time
             fclose(fp);
-            fprintf(names, "%s, %ld\n", file_name, end - start);
+            fprintf(names, "%s, %ld, %ld, %i\n", file_name, cycles, wall_micros, precisionCount);
 
             // Check if the result is within the precision
             printf("Precision count: %d/%d \n", precisionCount, (integerDimension - 2) * (integerDimension - 2));
@@ -77,6 +86,9 @@ int main() {
             }
             precisionCount = 0;
             iteration++;
+            if(iteration > 20) {
+                break;
+            }
         }
 
         fclose(names);
