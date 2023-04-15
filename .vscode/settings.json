@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "omp.h": "c",
-        "kernels.h": "c"
+        "kernels.h": "c",
+        "emmintrin.h": "c",
+        "xmmintrin.h": "c"
     }
 }

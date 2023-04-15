@@ -10,9 +10,9 @@ def plot_data(data, max):
     fig = plt.figure()
     ims = []
     for frame in data:
-        im = plt.imshow(frame, animated=True, vmin=0, vmax=max)
+        im = plt.imshow(np.asarray(frame)[1:-1,1:-1], animated=True, vmin=0, vmax=max)
         ims.append([im])
-    ani = animation.ArtistAnimation(fig, ims, interval=1000, blit=True,
+    ani = animation.ArtistAnimation(fig, ims, interval=100, blit=True,
                                     repeat_delay=4000)
     plt.show()
 
@@ -26,28 +26,28 @@ def analyze():
     with open("/tmp/parallel-kernels.txt", "r") as file:
         kernels = csv.reader(file)
         for kernel, name, max_val in kernels:
-            print("Kernel: {}".format(name))
+            #print("Kernel: {}".format(name))
             kernel_data = []
-            kernel_times = []
+            kernel_cycles = []
+            kernel_micros = []
             with open(kernel, "r") as kernel_file:
                 filepaths = csv.reader(kernel_file)
                 for filepath, cycles, micros, acc in filepaths:
-                    print("Seconds: {}; Cycles: {}; Acc: {}".format(int(micros)/1000000.0, cycles, acc))
+                    #print("Seconds: {}; Cycles: {}; Acc: {}".format(int(micros)/1000000.0, cycles, acc))
                     data = []
-                    times = []
-                    try:
-                        with open(filepath, "r") as csvfile:
-                            reader = csv.reader(csvfile)
-                            for row in reader:
-                                row = row[:-1]
-                                data.append([float(x) for x in row])
-                                times.append({cycles, micros})
-                        kernel_data.append(data)
-                        kernel_times.append(times)
-                    except:
-                        print("Error reading file: {}".format(filepath))
-                        break
-                return (kernel_times, kernel_data)
+                    times_cycles = []
+                    times_micros = []
+                    with open(filepath, "r") as csvfile:
+                        reader = csv.reader(csvfile)
+                        for row in reader:
+                            row = row[:-1]
+                            data.append([float(x) for x in row])
+                            times_micros.append(micros)
+                            times_cycles.append(cycles)
+                    kernel_data.append(data)
+                    kernel_cycles.append(times_cycles)
+                    kernel_micros.append(times_micros)
+            return (kernel_cycles, kernel_micros, kernel_data)
 
 
 
